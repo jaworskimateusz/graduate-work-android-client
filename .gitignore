@@ -49,6 +49,9 @@ cmake-build-*/
 # IntelliJ
 out/
 
+# OSX files
+.DS_Store
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
