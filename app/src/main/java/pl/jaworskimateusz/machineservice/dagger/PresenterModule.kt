@@ -6,10 +6,10 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import pl.jaworskimateusz.machineservice.dto.User
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
+import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit

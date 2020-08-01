@@ -1,6 +1,5 @@
 package pl.jaworskimateusz.machineservice.activity
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -8,9 +7,10 @@ import android.widget.Toast
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
-import pl.jaworskimateusz.machineservice.dto.ApplicationProblem
+import pl.jaworskimateusz.machineservice.dto.ApplicationProblemDto
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
+import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
 import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,23 +43,25 @@ class ReportProblemActivity : BaseActivity() {
         } else {
             if (NetworkManager.isNetworkAvailable(this)) {
                 val problemResponse = userServiceAPI.reportApplicationProblem(keywords.toUpperCase(), description)
-                problemResponse.enqueue(object : Callback<ApplicationProblem> {
-                    override fun onResponse(call: Call<ApplicationProblem>, response: Response<ApplicationProblem>) =
+                problemResponse.enqueue(object : Callback<ApplicationProblemDto> {
+                    override fun onResponse(call: Call<ApplicationProblemDto>, response: Response<ApplicationProblemDto>) =
                         when {
                             response.isSuccessful -> {
                                 dataSendSuccess()
                                 finish()
                             }
                             response.code() == 401 -> {
+                                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                                 sessionManager.logout()
                                 onError(getString(R.string.token_time_expired))
                             }
                             else -> {
-                                //TODO print error message onError(response.message())
+                                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                                errorResponse?.error?.let { onError(it) }
                                 dataSendFailed()
                             }
                         }
-                    override fun onFailure(call: Call<ApplicationProblem>, throwable: Throwable) {
+                    override fun onFailure(call: Call<ApplicationProblemDto>, throwable: Throwable) {
                         onError(throwable.message.toString())
                     }
                 })

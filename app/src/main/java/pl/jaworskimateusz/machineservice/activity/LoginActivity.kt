@@ -2,14 +2,12 @@ package pl.jaworskimateusz.machineservice.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import pl.jaworskimateusz.machineservice.dto.LoginResponse
-import pl.jaworskimateusz.machineservice.dto.User
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
-import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
+import pl.jaworskimateusz.machineservice.dto.UserDto
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.NetworkManager
@@ -90,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun initSessionData(token: String, user: User) {
+    private fun initSessionData(token: String, user: UserDto) {
         sessionManager.logIn(
             user.userId,
             user.username,

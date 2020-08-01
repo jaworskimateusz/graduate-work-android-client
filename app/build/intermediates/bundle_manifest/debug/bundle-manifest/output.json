@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "pl.jaworskimateusz.machineservice",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "BUNDLE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 1,
+        "versionName": "v1.01",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "pl.jaworskimateusz.machineservice",
+        "split": "",
+        "minSdkVersion": "22"
+      }
+    }
+  ]
+}

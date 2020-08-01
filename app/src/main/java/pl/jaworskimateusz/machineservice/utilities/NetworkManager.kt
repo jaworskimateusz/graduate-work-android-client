@@ -15,7 +15,6 @@ class NetworkManager () {
             }
             return isAvailable
         }
-
     }
 }
 

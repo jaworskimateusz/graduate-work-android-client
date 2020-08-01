@@ -1,6 +1,6 @@
 package pl.jaworskimateusz.machineservice.dto
 
-data class ApplicationProblem(
+data class ApplicationProblemDto(
     val userId: Long,
     val description: String,
     val keywords: String

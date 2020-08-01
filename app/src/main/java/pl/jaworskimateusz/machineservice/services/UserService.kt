@@ -1,8 +1,6 @@
 package pl.jaworskimateusz.machineservice.services
 
-import pl.jaworskimateusz.machineservice.dto.ApplicationProblem
-import pl.jaworskimateusz.machineservice.dto.LoginCredentials
-import pl.jaworskimateusz.machineservice.dto.LoginResponse
+import pl.jaworskimateusz.machineservice.dto.ApplicationProblemDto
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -15,7 +13,7 @@ interface UserService {
 
     @Headers("Content-Type: application/vnd.api+json")
     @POST("/application-problems")
-    fun reportApplicationProblem(@Header("Authorization") auth: String, @Body body: ApplicationProblem): Call<ApplicationProblem>
+    fun reportApplicationProblem(@Header("Authorization") auth: String, @Body body: ApplicationProblemDto): Call<ApplicationProblemDto>
 
 }
 
@@ -23,8 +21,8 @@ class UserServiceAPI(retrofit: Retrofit, private var sessionManager: SessionMana
 
     private var userService: UserService  = retrofit.create(UserService::class.java)
 
-    fun reportApplicationProblem(keywords: String, description: String): Call<ApplicationProblem> {
-        return userService.reportApplicationProblem(sessionManager.token, ApplicationProblem(sessionManager.userId, description, keywords))
+    fun reportApplicationProblem(keywords: String, description: String): Call<ApplicationProblemDto> {
+        return userService.reportApplicationProblem(sessionManager.token, ApplicationProblemDto(sessionManager.userId, description, keywords))
     }
 
 }

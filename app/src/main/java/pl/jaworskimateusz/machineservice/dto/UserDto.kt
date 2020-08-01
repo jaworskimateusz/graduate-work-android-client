@@ -2,9 +2,9 @@ package pl.jaworskimateusz.machineservice.dto
 
 data class LoginCredentials(val username: String, val password: String)
 
-data class LoginResponse(val token: String, val user: User)
+data class LoginResponse(val token: String, val user: UserDto)
 
-data class User(
+data class UserDto(
     val userId: Long,
     val username: String,
     val firstName: String,
