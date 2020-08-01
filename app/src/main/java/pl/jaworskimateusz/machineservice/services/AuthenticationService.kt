@@ -22,7 +22,7 @@ class AuthenticationServiceAPI(retrofit: Retrofit) {
     private var authenticationService: AuthenticationService = retrofit.create(AuthenticationService::class.java)
 
     fun createToken(username: String, password: String): Call<LoginResponse> {
-        return authenticationService.createToken("log_in", LoginCredentials(username, password))
+        return authenticationService.createToken("login", LoginCredentials(username, password))
     }
 
 }
