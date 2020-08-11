@@ -20,14 +20,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import pl.jaworskimateusz.machineservice.data.dao.TaskDao
+import pl.jaworskimateusz.machineservice.data.entity.Task
+import pl.jaworskimateusz.machineservice.data.entity.User
+import pl.jaworskimateusz.machineservice.utilities.Converters
 
+/**
+ * The Room database for this app
+ */
 @Database(
-    entities = [User::class],
+    entities = [User::class, Task::class],
     version = 1,
     exportSchema = false
 )
-//@TypeConverters(Converters::class)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun taskDao(): TaskDao
 
     companion object {
         @Volatile

@@ -51,7 +51,6 @@ class ReportProblemActivity : BaseActivity() {
                                 finish()
                             }
                             response.code() == 401 -> {
-                                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                                 sessionManager.logout()
                                 onError(getString(R.string.token_time_expired))
                             }

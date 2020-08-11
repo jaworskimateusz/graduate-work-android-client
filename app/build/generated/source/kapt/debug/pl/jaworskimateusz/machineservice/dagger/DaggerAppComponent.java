@@ -15,11 +15,15 @@ import pl.jaworskimateusz.machineservice.activity.MainActivity;
 import pl.jaworskimateusz.machineservice.activity.MainActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity;
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.activity.TasksActivity;
+import pl.jaworskimateusz.machineservice.activity.TasksActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.data.repository.TaskRepository;
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI;
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI;
 import pl.jaworskimateusz.machineservice.session.SessionManager;
+import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory;
 import retrofit2.Retrofit;
 
 @Generated(
@@ -46,6 +50,12 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<UserServiceAPI> provideUserServiceAPIProvider;
 
   private MembersInjector<ReportProblemActivity> reportProblemActivityMembersInjector;
+
+  private Provider<TaskRepository> provideTaskRepositoryProvider;
+
+  private Provider<TaskViewModelFactory> provideTaskListViewModelFactoryProvider;
+
+  private MembersInjector<TasksActivity> tasksActivityMembersInjector;
 
   private DaggerAppComponent(Builder builder) {
     assert builder != null;
@@ -102,6 +112,26 @@ public final class DaggerAppComponent implements AppComponent {
             provideSessionManagerProvider,
             provideAuthenticationServiceApiProvider,
             provideUserServiceAPIProvider);
+
+    this.provideTaskRepositoryProvider =
+        DoubleCheck.provider(
+            PresenterModule_ProvideTaskRepositoryFactory.create(
+                builder.presenterModule,
+                provideContextProvider,
+                provideSessionManagerProvider,
+                provideUserServiceAPIProvider));
+
+    this.provideTaskListViewModelFactoryProvider =
+        DoubleCheck.provider(
+            PresenterModule_ProvideTaskListViewModelFactoryFactory.create(
+                builder.presenterModule, provideTaskRepositoryProvider));
+
+    this.tasksActivityMembersInjector =
+        TasksActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideTaskListViewModelFactoryProvider,
+            provideTaskRepositoryProvider);
   }
 
   @Override
@@ -127,6 +157,11 @@ public final class DaggerAppComponent implements AppComponent {
   @Override
   public void inject(ReportProblemActivity target) {
     reportProblemActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(TasksActivity target) {
+    tasksActivityMembersInjector.injectMembers(target);
   }
 
   public static final class Builder {

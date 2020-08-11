@@ -21,23 +21,29 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Generated;
+import pl.jaworskimateusz.machineservice.data.dao.TaskDao;
+import pl.jaworskimateusz.machineservice.data.dao.TaskDao_Impl;
 
 @Generated("androidx.room.RoomProcessor")
 @SuppressWarnings("unchecked")
 public final class AppDatabase_Impl extends AppDatabase {
+  private volatile TaskDao _taskDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`task_id` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`task_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ae6ccdbc05d46cebe5f1fbdca1b10d73\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fe3bd302e41bc7d7e763d336c3b02f82\")");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `users`");
+        _db.execSQL("DROP TABLE IF EXISTS `tasks`");
       }
 
       @Override
@@ -79,12 +85,27 @@ public final class AppDatabase_Impl extends AppDatabase {
         final TableInfo _infoUsers = new TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers);
         final TableInfo _existingUsers = TableInfo.read(_db, "users");
         if (! _infoUsers.equals(_existingUsers)) {
-          throw new IllegalStateException("Migration didn't properly handle users(pl.jaworskimateusz.machineservice.data.User).\n"
+          throw new IllegalStateException("Migration didn't properly handle users(pl.jaworskimateusz.machineservice.data.entity.User).\n"
                   + " Expected:\n" + _infoUsers + "\n"
                   + " Found:\n" + _existingUsers);
         }
+        final HashMap<String, TableInfo.Column> _columnsTasks = new HashMap<String, TableInfo.Column>(5);
+        _columnsTasks.put("task_id", new TableInfo.Column("task_id", "INTEGER", true, 1));
+        _columnsTasks.put("title", new TableInfo.Column("title", "TEXT", true, 0));
+        _columnsTasks.put("description", new TableInfo.Column("description", "TEXT", true, 0));
+        _columnsTasks.put("date", new TableInfo.Column("date", "INTEGER", true, 0));
+        _columnsTasks.put("solved", new TableInfo.Column("solved", "INTEGER", true, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysTasks = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesTasks = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoTasks = new TableInfo("tasks", _columnsTasks, _foreignKeysTasks, _indicesTasks);
+        final TableInfo _existingTasks = TableInfo.read(_db, "tasks");
+        if (! _infoTasks.equals(_existingTasks)) {
+          throw new IllegalStateException("Migration didn't properly handle tasks(pl.jaworskimateusz.machineservice.data.entity.Task).\n"
+                  + " Expected:\n" + _infoTasks + "\n"
+                  + " Found:\n" + _existingTasks);
+        }
       }
-    }, "ae6ccdbc05d46cebe5f1fbdca1b10d73", "3bdb6403d6ba02f693ac74737a566be7");
+    }, "fe3bd302e41bc7d7e763d336c3b02f82", "20468053643d0295d80502edb617fa2b");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -97,7 +118,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks");
   }
 
   @Override
@@ -107,12 +128,27 @@ public final class AppDatabase_Impl extends AppDatabase {
     try {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `users`");
+      _db.execSQL("DELETE FROM `tasks`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
       _db.query("PRAGMA wal_checkpoint(FULL)").close();
       if (!_db.inTransaction()) {
         _db.execSQL("VACUUM");
+      }
+    }
+  }
+
+  @Override
+  public TaskDao taskDao() {
+    if (_taskDao != null) {
+      return _taskDao;
+    } else {
+      synchronized(this) {
+        if(_taskDao == null) {
+          _taskDao = new TaskDao_Impl(this);
+        }
+        return _taskDao;
       }
     }
   }

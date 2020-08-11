@@ -6,10 +6,12 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import pl.jaworskimateusz.machineservice.data.AppDatabase
+import pl.jaworskimateusz.machineservice.data.repository.TaskRepository
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
-import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
+import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -68,5 +70,22 @@ class PresenterModule {
     fun provideSessionManager(context: Context): SessionManager {
         return SessionManager(context)
     }
+
+    @Provides
+    @Singleton
+    fun provideTaskRepository(
+            context: Context,
+            sessionManager: SessionManager,
+            userServiceAPI: UserServiceAPI
+    ): TaskRepository = TaskRepository(
+            sessionManager,
+            userServiceAPI,
+            AppDatabase.getInstance(context.applicationContext).taskDao()
+    )
+
+    @Provides
+    @Singleton
+    fun provideTaskListViewModelFactory(taskRepository: TaskRepository): TaskViewModelFactory =
+            TaskViewModelFactory(taskRepository)
 
 }

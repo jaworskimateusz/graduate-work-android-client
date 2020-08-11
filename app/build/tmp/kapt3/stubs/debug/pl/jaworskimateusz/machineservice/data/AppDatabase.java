@@ -2,11 +2,18 @@ package pl.jaworskimateusz.machineservice.data;
 
 import java.lang.System;
 
-@androidx.room.Database(entities = {pl.jaworskimateusz.machineservice.data.User.class}, version = 1, exportSchema = false)
-@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\'\u0018\u0000 \u00032\u00020\u0001:\u0001\u0003B\u0005\u00a2\u0006\u0002\u0010\u0002\u00a8\u0006\u0004"}, d2 = {"Lpl/jaworskimateusz/machineservice/data/AppDatabase;", "Landroidx/room/RoomDatabase;", "()V", "Companion", "app_debug"})
+/**
+ * The Room database for this app
+ */
+@androidx.room.TypeConverters(value = {pl.jaworskimateusz.machineservice.utilities.Converters.class})
+@androidx.room.Database(entities = {pl.jaworskimateusz.machineservice.data.entity.User.class, pl.jaworskimateusz.machineservice.data.entity.Task.class}, version = 1, exportSchema = false)
+@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\'\u0018\u0000 \u00052\u00020\u0001:\u0001\u0005B\u0005\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H&\u00a8\u0006\u0006"}, d2 = {"Lpl/jaworskimateusz/machineservice/data/AppDatabase;", "Landroidx/room/RoomDatabase;", "()V", "taskDao", "Lpl/jaworskimateusz/machineservice/data/dao/TaskDao;", "Companion", "app_debug"})
 public abstract class AppDatabase extends androidx.room.RoomDatabase {
     private static volatile pl.jaworskimateusz.machineservice.data.AppDatabase instance;
     public static final pl.jaworskimateusz.machineservice.data.AppDatabase.Companion Companion = null;
+    
+    @org.jetbrains.annotations.NotNull()
+    public abstract pl.jaworskimateusz.machineservice.data.dao.TaskDao taskDao();
     
     public AppDatabase() {
         super();

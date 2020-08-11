@@ -33,4 +33,9 @@ class MainActivity : BaseActivity() {
         startActivity(intent)
     }
 
+    fun navigateTasks(view: View) {
+        val intent = Intent(this, TasksActivity::class.java)
+        startActivity(intent)
+    }
+
 }

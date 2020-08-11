@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_activity_tasks.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/activity_tasks.xml"
+    },
+    {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },

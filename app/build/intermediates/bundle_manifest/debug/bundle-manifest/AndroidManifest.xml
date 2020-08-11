@@ -33,6 +33,10 @@
             android:label="@string/title_activity_report_problem"
             android:theme="@style/AppTheme.Dark.NoActionBar" />
         <activity
+            android:name="pl.jaworskimateusz.machineservice.activity.TasksActivity"
+            android:label="@string/tasks"
+            android:theme="@style/AppTheme.Dark.NoActionBar" />
+        <activity
             android:name="pl.jaworskimateusz.machineservice.activity.LoginActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity

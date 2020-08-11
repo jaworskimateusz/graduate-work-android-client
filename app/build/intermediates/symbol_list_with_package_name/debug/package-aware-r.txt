@@ -1191,7 +1191,6 @@ id blocking
 id bottom
 id btn_login
 id buttonPanel
-id button_cards
 id button_official
 id button_send_report
 id cancel_action
@@ -1302,6 +1301,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id remember_me
+id report_problem
 id right
 id right_icon
 id right_side
@@ -1444,6 +1444,7 @@ layout abc_tooltip
 layout activity_login
 layout activity_main
 layout activity_report_problem
+layout activity_tasks
 layout app_bar
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1581,6 +1582,7 @@ string report_problem
 string report_problem_description
 string search_menu_title
 string status_bar_notification_info_overflow
+string tasks
 string title_activity_report_problem
 string title_dashboard
 string title_home

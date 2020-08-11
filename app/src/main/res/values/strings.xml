@@ -4,6 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="report_problem">Report problem</string>
+    <string name="tasks">Tasks</string>
     <string name="report_problem_description">If you see any issues with app please report it</string>
     <string name="hint_app_problem_description">Please enter description</string>
     <string name="keywords_hint">Keywords</string>
