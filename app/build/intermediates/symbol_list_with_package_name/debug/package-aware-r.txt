@@ -634,6 +634,7 @@ color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
 color accent
+color accent_blue
 color accent_material_dark
 color accent_material_light
 color background_floating_material_dark
@@ -752,6 +753,7 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color task_back
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -1096,6 +1098,9 @@ drawable ic_plusone_medium_off_client
 drawable ic_plusone_small_off_client
 drawable ic_plusone_standard_off_client
 drawable ic_plusone_tall_off_client
+drawable ic_task_detail
+drawable ic_task_not_solved
+drawable ic_task_solved
 drawable layout_bg
 drawable logo
 drawable main_icon
@@ -1247,6 +1252,7 @@ id groups
 id home
 id homeAsUp
 id horizontal
+id ib_task_details
 id icon
 id icon_group
 id icon_only
@@ -1256,6 +1262,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id iw_solved
 id labeled
 id largeLabel
 id left
@@ -1357,6 +1364,8 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id task_item
+id tasks_list
 id text
 id text2
 id textSpacerNoButtons
@@ -1380,6 +1389,8 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tw_date
+id tw_title
 id uniform
 id unlabeled
 id up
@@ -1461,6 +1472,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout item_task
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header

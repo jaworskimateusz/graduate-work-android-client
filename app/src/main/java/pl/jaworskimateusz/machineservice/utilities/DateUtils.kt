@@ -1,0 +1,21 @@
+package pl.jaworskimateusz.machineservice.utilities
+
+import java.text.SimpleDateFormat
+import java.util.*
+
+class DateUtils {
+    companion object {
+
+        const val DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm"
+        const val DATE_TIME_PATTERN_ISO = "yyyy-MM-dd'T'HH:mm"
+        const val DATE_TIME_SEC_PATTERN = "yyyy-MM-dd HH:mm:ss"
+        const val DATE_PATTERN = "dd-MM-yyyy"
+        const val DATE_PATTERN_SEC = "yyyy-MM-dd"
+        const val TIME_PATTERN = "HH:mm"
+
+        fun dateToString(date: Date) : String {
+            val format = SimpleDateFormat(DATE_TIME_PATTERN)
+            return format.format(date)
+        }
+    }
+}
