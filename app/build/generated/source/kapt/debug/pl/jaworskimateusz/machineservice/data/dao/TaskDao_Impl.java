@@ -230,4 +230,29 @@ public final class TaskDao_Impl implements TaskDao {
       _statement.release();
     }
   }
+
+  @Override
+  public Date getMaxTaskDate() {
+    final String _sql = "SELECT MAX(date) FROM tasks";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = DBUtil.query(__db, _statement, false);
+    try {
+      final Date _result;
+      if(_cursor.moveToFirst()) {
+        final Long _tmp;
+        if (_cursor.isNull(0)) {
+          _tmp = null;
+        } else {
+          _tmp = _cursor.getLong(0);
+        }
+        _result = __converters.fromTimeStamp(_tmp);
+      } else {
+        _result = null;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

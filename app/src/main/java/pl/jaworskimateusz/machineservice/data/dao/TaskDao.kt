@@ -20,6 +20,9 @@ interface TaskDao {
     @Query("SELECT * FROM tasks ORDER BY date")
     fun getAllTasks(): List<Task>
 
+    @Query("SELECT MAX(date) FROM tasks")
+    fun getMaxTaskDate(): Date?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllTasks(tasks: List<Task>)
 

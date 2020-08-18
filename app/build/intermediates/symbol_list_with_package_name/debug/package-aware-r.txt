@@ -1290,6 +1290,7 @@ id nav_header_name
 id nav_logout
 id nav_main_menu
 id nav_report_problem
+id nav_tasks
 id nav_view
 id navigation_header_container
 id never

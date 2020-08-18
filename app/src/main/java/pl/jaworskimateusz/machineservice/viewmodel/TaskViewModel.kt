@@ -24,7 +24,7 @@ import pl.jaworskimateusz.machineservice.data.repository.TaskRepository
 import java.util.*
 
 class TaskViewModel internal constructor(
-        private val taskRepository: TaskRepository
+        val taskRepository: TaskRepository
 ) : ViewModel() {
 
     private val mutableLiveData = MutableLiveData<SearchingParams>()

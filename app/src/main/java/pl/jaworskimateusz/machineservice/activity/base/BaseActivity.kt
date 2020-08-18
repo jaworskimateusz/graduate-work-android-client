@@ -15,6 +15,7 @@ import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.MainActivity
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity
+import pl.jaworskimateusz.machineservice.activity.TasksActivity
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import javax.inject.Inject
@@ -66,6 +67,11 @@ open class BaseActivity : AppCompatActivity() {
                 }
                 R.id.nav_report_problem -> {
                     val intent = Intent(this, ReportProblemActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+                    startActivity(intent)
+                }
+                R.id.nav_tasks -> {
+                    val intent = Intent(this, TasksActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
                     startActivity(intent)
                 }

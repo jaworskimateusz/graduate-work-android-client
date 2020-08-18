@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.EditText
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ import pl.jaworskimateusz.machineservice.utilities.DateUtils
 import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory
+import java.lang.Exception
 import java.util.*
 import javax.inject.Inject
 
@@ -39,16 +41,13 @@ class TasksActivity : BaseActivity() {
     @Inject
     lateinit var taskViewModelFactory: TaskViewModelFactory
 
-    @Inject
-    lateinit var taskRepository: TaskRepository
-
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as MachineServiceApplication).component.inject(this)
         taskViewModel = ViewModelProviders.of(this, taskViewModelFactory).get(TaskViewModel::class.java)
         setContentView(R.layout.activity_tasks)
         initDrawerLayout()
         if (NetworkManager.isNetworkAvailable(this))
-            taskRepository.downloadTasksFromService()
+            taskViewModel.taskRepository.downloadTasksFromService()
 
         taskAdapter = TaskRecyclerViewAdapter(this)
         tasksList = findViewById(R.id.tasks_list)
@@ -108,6 +107,10 @@ class TasksActivity : BaseActivity() {
                 searchTasks()
             }
         })
+
+        cbTaskSolved.setOnCheckedChangeListener { _, _ ->
+            searchTasks()
+        }
     }
 
 }

@@ -6,6 +6,7 @@ import pl.jaworskimateusz.machineservice.session.SessionManager
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.*
+import java.util.*
 
 interface UserService {
 
@@ -16,7 +17,8 @@ interface UserService {
     @Headers("Content-Type: application/vnd.api+json")
     @GET("/users/{userId}/tasks")
     fun downloadTasks(@Header("Authorization") auth: String,
-                      @Path("userId") userId: Long
+                      @Path("userId") userId: Long,
+                      @Query("date") date: String
     ): Call<List<TaskDto>>
 
 }
@@ -32,8 +34,8 @@ class UserServiceAPI(retrofit: Retrofit, private var sessionManager: SessionMana
         )
     }
 
-    fun downloadTasks(): Call<List<TaskDto>>{
-        return userService.downloadTasks(sessionManager.token, sessionManager.userId)
+    fun downloadTasks(maxTaskDate: String): Call<List<TaskDto>>{
+        return userService.downloadTasks(sessionManager.token, sessionManager.userId, maxTaskDate)
     }
 
 }

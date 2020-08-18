@@ -2,10 +2,11 @@ package pl.jaworskimateusz.machineservice.viewmodel;
 
 import java.lang.System;
 
-@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\u0018\u00002\u00020\u0001:\u0001\u0014B\u000f\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0012\u0010\f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\tJ\u001e\u0010\r\u001a\u00020\u00002\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u0011\u001a\u00020\u0012J\u001c\u0010\r\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\t2\u0006\u0010\u0013\u001a\u00020\u0007H\u0002R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001a\u0010\b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\tX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0015"}, d2 = {"Lpl/jaworskimateusz/machineservice/viewmodel/TaskViewModel;", "Landroidx/lifecycle/ViewModel;", "taskRepository", "Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;", "(Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;)V", "mutableLiveData", "Landroidx/lifecycle/MutableLiveData;", "Lpl/jaworskimateusz/machineservice/viewmodel/TaskViewModel$SearchingParams;", "taskList", "Landroidx/lifecycle/LiveData;", "", "Lpl/jaworskimateusz/machineservice/data/entity/Task;", "getTasks", "getTasksByDates", "dateFrom", "Ljava/util/Date;", "dateTo", "solved", "", "params", "SearchingParams", "app_debug"})
+@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\u0018\u00002\u00020\u0001:\u0001\u0016B\u000f\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0012\u0010\u000e\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\tJ\u001e\u0010\u000f\u001a\u00020\u00002\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u0014J\u001c\u0010\u000f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\t2\u0006\u0010\u0015\u001a\u00020\u0007H\u0002R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001a\u0010\b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000b0\n0\tX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0011\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\r\u00a8\u0006\u0017"}, d2 = {"Lpl/jaworskimateusz/machineservice/viewmodel/TaskViewModel;", "Landroidx/lifecycle/ViewModel;", "taskRepository", "Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;", "(Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;)V", "mutableLiveData", "Landroidx/lifecycle/MutableLiveData;", "Lpl/jaworskimateusz/machineservice/viewmodel/TaskViewModel$SearchingParams;", "taskList", "Landroidx/lifecycle/LiveData;", "", "Lpl/jaworskimateusz/machineservice/data/entity/Task;", "getTaskRepository", "()Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;", "getTasks", "getTasksByDates", "dateFrom", "Ljava/util/Date;", "dateTo", "solved", "", "params", "SearchingParams", "app_debug"})
 public final class TaskViewModel extends androidx.lifecycle.ViewModel {
     private final androidx.lifecycle.MutableLiveData<pl.jaworskimateusz.machineservice.viewmodel.TaskViewModel.SearchingParams> mutableLiveData = null;
     private final androidx.lifecycle.LiveData<java.util.List<pl.jaworskimateusz.machineservice.data.entity.Task>> taskList = null;
+    @org.jetbrains.annotations.NotNull()
     private final pl.jaworskimateusz.machineservice.data.repository.TaskRepository taskRepository = null;
     
     private final androidx.lifecycle.LiveData<java.util.List<pl.jaworskimateusz.machineservice.data.entity.Task>> getTasksByDates(pl.jaworskimateusz.machineservice.viewmodel.TaskViewModel.SearchingParams params) {
@@ -21,6 +22,11 @@ public final class TaskViewModel extends androidx.lifecycle.ViewModel {
     
     @org.jetbrains.annotations.NotNull()
     public final androidx.lifecycle.LiveData<java.util.List<pl.jaworskimateusz.machineservice.data.entity.Task>> getTasks() {
+        return null;
+    }
+    
+    @org.jetbrains.annotations.NotNull()
+    public final pl.jaworskimateusz.machineservice.data.repository.TaskRepository getTaskRepository() {
         return null;
     }
     
