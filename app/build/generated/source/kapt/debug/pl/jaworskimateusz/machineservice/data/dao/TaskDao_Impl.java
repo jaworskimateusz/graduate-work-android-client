@@ -124,6 +124,74 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
+  public LiveData<List<Task>> getAllTasksByDatesLiveData(final Date dateFrom, final Date dateTo,
+      final int solved) {
+    final String _sql = "SELECT * FROM tasks WHERE (date BETWEEN ? AND ?) AND solved=? ORDER BY date";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 3);
+    int _argIndex = 1;
+    final Long _tmp;
+    _tmp = __converters.dateToTimestamp(dateFrom);
+    if (_tmp == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindLong(_argIndex, _tmp);
+    }
+    _argIndex = 2;
+    final Long _tmp_1;
+    _tmp_1 = __converters.dateToTimestamp(dateTo);
+    if (_tmp_1 == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindLong(_argIndex, _tmp_1);
+    }
+    _argIndex = 3;
+    _statement.bindLong(_argIndex, solved);
+    return __db.getInvalidationTracker().createLiveData(new String[]{"tasks"}, new Callable<List<Task>>() {
+      @Override
+      public List<Task> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false);
+        try {
+          final int _cursorIndexOfTaskId = CursorUtil.getColumnIndexOrThrow(_cursor, "task_id");
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+          final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final int _cursorIndexOfSolved = CursorUtil.getColumnIndexOrThrow(_cursor, "solved");
+          final List<Task> _result = new ArrayList<Task>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Task _item;
+            final long _tmpTaskId;
+            _tmpTaskId = _cursor.getLong(_cursorIndexOfTaskId);
+            final String _tmpTitle;
+            _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            final String _tmpDescription;
+            _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+            final Date _tmpDate;
+            final Long _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDate)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getLong(_cursorIndexOfDate);
+            }
+            _tmpDate = __converters.fromTimeStamp(_tmp_2);
+            final int _tmpSolved;
+            _tmpSolved = _cursor.getInt(_cursorIndexOfSolved);
+            _item = new Task(_tmpTaskId,_tmpTitle,_tmpDescription,_tmpDate,_tmpSolved);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
   public List<Task> getAllTasks() {
     final String _sql = "SELECT * FROM tasks ORDER BY date";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);

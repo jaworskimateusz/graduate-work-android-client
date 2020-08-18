@@ -1199,6 +1199,7 @@ id buttonPanel
 id button_official
 id button_send_report
 id cancel_action
+id cb_task_solved
 id center
 id center_horizontal
 id center_vertical
@@ -1208,6 +1209,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id constraint_layout
 id container
 id content
 id contentPanel
@@ -1233,6 +1235,8 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_date_from
+id et_date_to
 id et_keywords
 id et_password
 id et_problem_description
@@ -1566,6 +1570,8 @@ string common_signin_button_text
 string common_signin_button_text_long
 string data_send_faild
 string data_send_success
+string date_from
+string date_to
 string department_name
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -1593,6 +1599,7 @@ string remember_me_hint
 string report_problem
 string report_problem_description
 string search_menu_title
+string solved
 string status_bar_notification_info_overflow
 string tasks
 string title_activity_report_problem

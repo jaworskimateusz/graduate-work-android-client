@@ -27,13 +27,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/constraint_layout"
         tools:context=".activity.ReportProblemActivity">
 
         <include layout="@layout/app_bar" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="55"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_date_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/date_from"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="55"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_date_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/date_to"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/solved" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_task_solved"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tasks_list"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="LinearLayoutManager"

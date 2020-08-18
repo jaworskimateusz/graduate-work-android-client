@@ -1,6 +1,10 @@
 package pl.jaworskimateusz.machineservice.utilities
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class DateUtils {
@@ -17,5 +21,16 @@ class DateUtils {
             val format = SimpleDateFormat(DATE_TIME_PATTERN)
             return format.format(date)
         }
+
+        fun dateToString(date: Calendar): String {
+            val format = SimpleDateFormat(DATE_PATTERN)
+            return format.format(date.time)
+        }
+
+        fun stringToDate(string: String): Date {
+            val format = SimpleDateFormat(DATE_PATTERN)
+            return format.parse(string)
+        }
+
     }
 }

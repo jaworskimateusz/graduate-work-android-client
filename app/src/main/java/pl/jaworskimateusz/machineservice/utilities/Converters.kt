@@ -25,12 +25,12 @@ import java.util.*
  */
 class Converters {
     @TypeConverter
-    fun calendarToDatestamp(calendar: Calendar?): Long? {
+    fun calendarToDateStamp(calendar: Calendar?): Long? {
         return calendar?.timeInMillis
     }
 
     @TypeConverter
-    fun datestampToCalendar(value: Long?): Calendar? {
+    fun dateStampToCalendar(value: Long?): Calendar? {
         if (value == null)
             return null
         return Calendar.getInstance().apply { timeInMillis = value }

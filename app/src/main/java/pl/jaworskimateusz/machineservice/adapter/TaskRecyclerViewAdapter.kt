@@ -22,8 +22,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -57,12 +55,11 @@ class TaskRecyclerViewAdapter(val context: Context) :  ListAdapter<Task, TaskRec
     }
 
     private fun setSolved(imageView: ImageView, solved: Int) {
-        //TODO not working
         imageView.setImageDrawable(
                 if (solved == 1)
                     ContextCompat.getDrawable(context, R.drawable.ic_task_solved)
                 else
-                    ContextCompat.getDrawable(context, R.drawable.ic_task_solved)
+                    ContextCompat.getDrawable(context, R.drawable.ic_task_not_solved)
         )
     }
 

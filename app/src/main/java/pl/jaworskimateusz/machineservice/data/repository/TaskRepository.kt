@@ -3,6 +3,7 @@ package pl.jaworskimateusz.machineservice.data.repository
 import android.os.AsyncTask
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao
 import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.dto.TaskDto
@@ -11,6 +12,7 @@ import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
 import retrofit2.Response
+import java.util.*
 import java.util.logging.Logger
 
 
@@ -19,7 +21,9 @@ class TaskRepository constructor(
         private val userServiceAPI: UserServiceAPI,
         private val taskDao: TaskDao
 ) {
-    fun getTasksLiveData() = taskDao.getAllTasksLiveData()
+    fun getTasksByDatesLiveData(dateFrom: Date, dateTo: Date, solved: Int): LiveData<List<Task>> {
+        return taskDao.getAllTasksByDatesLiveData(dateFrom, dateTo, solved)
+    }
     fun downloadTasksFromService() {
         downloadTasks().execute()
     }
