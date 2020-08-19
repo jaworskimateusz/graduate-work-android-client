@@ -1,12 +1,11 @@
 package pl.jaworskimateusz.machineservice.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.EditText
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
@@ -14,19 +13,17 @@ import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.adapter.TaskRecyclerViewAdapter
-import pl.jaworskimateusz.machineservice.data.repository.TaskRepository
-import pl.jaworskimateusz.machineservice.session.SessionManager
+import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.utilities.DatePicker
 import pl.jaworskimateusz.machineservice.utilities.DateUtils
 import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory
-import java.lang.Exception
 import java.util.*
 import javax.inject.Inject
 
 
-class TasksActivity : BaseActivity() {
+class TasksActivity : BaseActivity(), TaskRecyclerViewAdapter.OnTaskListener {
 
     private lateinit var taskAdapter: TaskRecyclerViewAdapter
     private lateinit var tasksList: RecyclerView
@@ -37,6 +34,7 @@ class TasksActivity : BaseActivity() {
     private lateinit var cbTaskSolved: CheckBox
 
     private lateinit var taskViewModel: TaskViewModel
+    private lateinit var tasks: List<Task>
 
     @Inject
     lateinit var taskViewModelFactory: TaskViewModelFactory
@@ -49,7 +47,7 @@ class TasksActivity : BaseActivity() {
         if (NetworkManager.isNetworkAvailable(this))
             taskViewModel.taskRepository.downloadTasksFromService()
 
-        taskAdapter = TaskRecyclerViewAdapter(this)
+        taskAdapter = TaskRecyclerViewAdapter(this, this)
         tasksList = findViewById(R.id.tasks_list)
         cbTaskSolved = findViewById(R.id.cb_task_solved)
         initDatePickers()
@@ -66,6 +64,7 @@ class TasksActivity : BaseActivity() {
         taskViewModel.getTasks().observe(this, Observer { tasks ->
             if (tasks != null)
                 taskAdapter.submitList(tasks)
+                this.tasks = tasks
         })
     }
 
@@ -111,6 +110,13 @@ class TasksActivity : BaseActivity() {
         cbTaskSolved.setOnCheckedChangeListener { _, _ ->
             searchTasks()
         }
+    }
+
+    override fun onTaskClick(position: Int) {
+        val taskId = tasks[position].taskId
+        val intent = Intent(this, TaskDetailActivity::class.java)
+        intent.putExtra("taskId", taskId)
+        startActivity(intent)
     }
 
 }

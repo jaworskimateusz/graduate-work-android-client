@@ -20,5 +20,15 @@ class TaskMapper {
                     task.solved
             )
         }
+
+        fun mapToTaskDto(task: Task): TaskDto {
+            return TaskDto(
+                    task.taskId,
+                    task.title,
+                    task.description,
+                    task.date,
+                    task.solved
+            )
+        }
     }
 }

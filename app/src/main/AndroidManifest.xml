@@ -26,6 +26,10 @@
             android:label="@string/tasks"
             android:theme="@style/AppTheme.Dark.NoActionBar"></activity>
         <activity
+            android:name=".activity.TaskDetailActivity"
+            android:label="@string/tasks"
+            android:theme="@style/AppTheme.Dark.NoActionBar"></activity>
+        <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity

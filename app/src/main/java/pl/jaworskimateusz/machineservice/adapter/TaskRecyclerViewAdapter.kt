@@ -31,10 +31,10 @@ import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.utilities.DateUtils
 
-class TaskRecyclerViewAdapter(val context: Context) :  ListAdapter<Task, TaskRecyclerViewAdapter.TaskViewHolder>(TaskDiffCallback()) {
+class TaskRecyclerViewAdapter(val context: Context, private val onTaskListener: OnTaskListener) :  ListAdapter<Task, TaskRecyclerViewAdapter.TaskViewHolder>(TaskDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        return TaskViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false))
+        return TaskViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false), onTaskListener)
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
@@ -43,15 +43,20 @@ class TaskRecyclerViewAdapter(val context: Context) :  ListAdapter<Task, TaskRec
         holder.date.text = DateUtils.dateToString(item.date)
         val imageView =  holder.itemView.findViewById<ImageView>(R.id.iw_solved)
         setSolved(imageView, item.solved)
-        //TODO onClickListener
     }
 
-    inner class TaskViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class TaskViewHolder(private val view: View, private val onTaskListener: OnTaskListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val title: TextView = view.tw_title
         val date: TextView = view.tw_date
         val solved: ImageView = view.iw_solved
-        val taskDetails: ImageButton = view.ib_task_details
-        val mView: View = view
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            onTaskListener.onTaskClick(adapterPosition)
+        }
     }
 
     private fun setSolved(imageView: ImageView, solved: Int) {
@@ -63,6 +68,9 @@ class TaskRecyclerViewAdapter(val context: Context) :  ListAdapter<Task, TaskRec
         )
     }
 
+    interface OnTaskListener {
+        fun onTaskClick(position: Int)
+    }
 
 }
 

@@ -2,7 +2,6 @@ package pl.jaworskimateusz.machineservice.activity.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
@@ -104,6 +103,10 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun onError(text: String) {
+        Toast.makeText(baseContext, text, Toast.LENGTH_LONG).show()
+    }
+
+    fun makeToast(text: String) {
         Toast.makeText(baseContext, text, Toast.LENGTH_LONG).show()
     }
 

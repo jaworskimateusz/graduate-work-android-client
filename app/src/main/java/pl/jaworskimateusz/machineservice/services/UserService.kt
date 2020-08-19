@@ -2,6 +2,7 @@ package pl.jaworskimateusz.machineservice.services
 
 import pl.jaworskimateusz.machineservice.dto.ApplicationProblemDto
 import pl.jaworskimateusz.machineservice.dto.TaskDto
+import pl.jaworskimateusz.machineservice.dto.UserDto
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -21,6 +22,13 @@ interface UserService {
                       @Query("date") date: String
     ): Call<List<TaskDto>>
 
+    @Headers("Content-Type: application/vnd.api+json")
+    @POST("/users/{userId}/tasks")
+    fun updateTask(@Header("Authorization") auth: String,
+                      @Path("userId") userId: Long,
+                      @Body task: TaskDto
+    ): Call<TaskDto>
+
 }
 
 class UserServiceAPI(retrofit: Retrofit, private var sessionManager: SessionManager) {
@@ -36,6 +44,10 @@ class UserServiceAPI(retrofit: Retrofit, private var sessionManager: SessionMana
 
     fun downloadTasks(maxTaskDate: String): Call<List<TaskDto>>{
         return userService.downloadTasks(sessionManager.token, sessionManager.userId, maxTaskDate)
+    }
+
+    fun updateTask(taskDto: TaskDto): Call<TaskDto>{
+        return userService.updateTask(sessionManager.token, sessionManager.userId, taskDto)
     }
 
 }

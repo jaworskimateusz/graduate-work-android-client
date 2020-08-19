@@ -10,6 +10,7 @@ import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao
 import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.dto.TaskDto
+import pl.jaworskimateusz.machineservice.dto.UserDto
 import pl.jaworskimateusz.machineservice.mappers.TaskMapper
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
@@ -35,13 +36,21 @@ class TaskRepository constructor(
         DownloadTasks().execute()
     }
 
+    fun updateTask(task: Task){
+        UpdateTask(task).execute()
+    }
+
+    fun getTaskById(taskId: Long): Task {
+        return taskDao.getTaskById(taskId)
+    }
+
     @SuppressLint("StaticFieldLeak")
     inner class DownloadTasks() : AsyncTask<Void, Void, TaskDto>() {
         override fun doInBackground(vararg params: Void?): TaskDto? {
             val maxTaskDate = taskDao.getMaxTaskDate()
             val response: Response<List<TaskDto>>
             response = if (maxTaskDate == null)
-                userServiceAPI.downloadTasks(DateUtils.dateToString(Date())).execute()
+                userServiceAPI.downloadTasks(DateUtils.dateToString(null)).execute()
             else
                 userServiceAPI.downloadTasks(DateUtils.dateToString(maxTaskDate)).execute()
             if (response.isSuccessful) {
@@ -54,6 +63,21 @@ class TaskRepository constructor(
                 if (errorResponse?.status == 401) {
                     sessionManager.logout()
                 }
+            }
+            return null
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class UpdateTask(val task: Task) : AsyncTask<Void, Void, TaskDto>() {
+        override fun doInBackground(vararg params: Void?): TaskDto? {
+            val response = userServiceAPI.updateTask(TaskMapper.mapToTaskDto(task)).execute()
+            if (response.isSuccessful) {
+                taskDao.insert(task)
+                Log.d(TAG,"Task with id ${task.taskId} updated.")
+            } else {
+                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Log.e(TAG, errorResponse?.error)
             }
             return null
         }

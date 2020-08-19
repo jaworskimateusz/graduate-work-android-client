@@ -1243,6 +1243,7 @@ id et_problem_description
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_save
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1273,6 +1274,7 @@ id left
 id light
 id line1
 id line3
+id linearLayout
 id listMode
 id list_item
 id login
@@ -1395,6 +1397,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tw_date
+id tw_solved_status
+id tw_task_description
 id tw_title
 id uniform
 id unlabeled
@@ -1460,6 +1464,7 @@ layout abc_tooltip
 layout activity_login
 layout activity_main
 layout activity_report_problem
+layout activity_task_detail
 layout activity_tasks
 layout app_bar
 layout custom_dialog
@@ -1574,6 +1579,7 @@ string data_send_success
 string date_from
 string date_to
 string department_name
+string description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string full_name
@@ -1590,6 +1596,7 @@ string mtrl_chip_close_icon_content_description
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string no_internet_connection
+string not_solved_status
 string password_hint
 string password_toggle_content_description
 string path_password_eye
@@ -1601,7 +1608,10 @@ string report_problem
 string report_problem_description
 string search_menu_title
 string solved
+string solved_status
 string status_bar_notification_info_overflow
+string task_detail
+string task_solved
 string tasks
 string title_activity_report_problem
 string title_dashboard

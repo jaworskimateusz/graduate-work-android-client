@@ -35,9 +35,9 @@ public final class AppDatabase_Impl extends AppDatabase {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`task_id` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`task_id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fe3bd302e41bc7d7e763d336c3b02f82\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3ce82895ae9043c0cb78cbc7ef8afde0\")");
       }
 
       @Override
@@ -90,7 +90,7 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Found:\n" + _existingUsers);
         }
         final HashMap<String, TableInfo.Column> _columnsTasks = new HashMap<String, TableInfo.Column>(5);
-        _columnsTasks.put("task_id", new TableInfo.Column("task_id", "INTEGER", true, 1));
+        _columnsTasks.put("taskId", new TableInfo.Column("taskId", "INTEGER", true, 1));
         _columnsTasks.put("title", new TableInfo.Column("title", "TEXT", true, 0));
         _columnsTasks.put("description", new TableInfo.Column("description", "TEXT", true, 0));
         _columnsTasks.put("date", new TableInfo.Column("date", "INTEGER", true, 0));
@@ -105,7 +105,7 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Found:\n" + _existingTasks);
         }
       }
-    }, "fe3bd302e41bc7d7e763d336c3b02f82", "20468053643d0295d80502edb617fa2b");
+    }, "3ce82895ae9043c0cb78cbc7ef8afde0", "a5e7be3d814fa1e5e3e0905d8bad7d2e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

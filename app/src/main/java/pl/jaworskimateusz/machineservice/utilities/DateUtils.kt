@@ -17,7 +17,9 @@ class DateUtils {
         const val DATE_PATTERN_SEC = "yyyy-MM-dd"
         const val TIME_PATTERN = "HH:mm"
 
-        fun dateToString(date: Date) : String {
+        fun dateToString(date: Date?) : String {
+            if (date == null)
+                return ""
             val format = SimpleDateFormat(DATE_TIME_PATTERN)
             return format.format(date)
         }

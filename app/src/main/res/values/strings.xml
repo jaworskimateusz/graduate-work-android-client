@@ -5,9 +5,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="report_problem">Report problem</string>
     <string name="tasks">Tasks</string>
+    <string name="task_detail">Task detail</string>
     <string name="date_from">date from</string>
     <string name="date_to">date to</string>
+    <string name="description">Description:</string>
     <string name="solved">solved:</string>
+    <string name="solved_status">SOLVED</string>
+    <string name="not_solved_status">NOT SOLVED</string>
+    <string name="task_solved">This task was solved</string>
     <string name="report_problem_description">If you see any issues with app please report it</string>
     <string name="hint_app_problem_description">Please enter description</string>
     <string name="keywords_hint">Keywords</string>

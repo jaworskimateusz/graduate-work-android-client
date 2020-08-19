@@ -2,7 +2,7 @@ package pl.jaworskimateusz.machineservice.data.repository;
 
 import java.lang.System;
 
-@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\u0018\u0000 \u00142\u00020\u0001:\u0002\u0014\u0015B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u00a2\u0006\u0002\u0010\bJ\u0006\u0010\t\u001a\u00020\nJ*\u0010\u000b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000e0\r0\f2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0013R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0016"}, d2 = {"Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;", "", "sessionManager", "Lpl/jaworskimateusz/machineservice/session/SessionManager;", "userServiceAPI", "Lpl/jaworskimateusz/machineservice/services/UserServiceAPI;", "taskDao", "Lpl/jaworskimateusz/machineservice/data/dao/TaskDao;", "(Lpl/jaworskimateusz/machineservice/session/SessionManager;Lpl/jaworskimateusz/machineservice/services/UserServiceAPI;Lpl/jaworskimateusz/machineservice/data/dao/TaskDao;)V", "downloadTasksFromService", "", "getTasksByDatesLiveData", "Landroidx/lifecycle/LiveData;", "", "Lpl/jaworskimateusz/machineservice/data/entity/Task;", "dateFrom", "Ljava/util/Date;", "dateTo", "solved", "", "Companion", "DownloadTasks", "app_debug"})
+@kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 \u00192\u00020\u0001:\u0003\u0019\u001a\u001bB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u00a2\u0006\u0002\u0010\bJ\u0006\u0010\t\u001a\u00020\nJ\u000e\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000eJ*\u0010\u000f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\f0\u00110\u00102\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016J\u000e\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\fR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001c"}, d2 = {"Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;", "", "sessionManager", "Lpl/jaworskimateusz/machineservice/session/SessionManager;", "userServiceAPI", "Lpl/jaworskimateusz/machineservice/services/UserServiceAPI;", "taskDao", "Lpl/jaworskimateusz/machineservice/data/dao/TaskDao;", "(Lpl/jaworskimateusz/machineservice/session/SessionManager;Lpl/jaworskimateusz/machineservice/services/UserServiceAPI;Lpl/jaworskimateusz/machineservice/data/dao/TaskDao;)V", "downloadTasksFromService", "", "getTaskById", "Lpl/jaworskimateusz/machineservice/data/entity/Task;", "taskId", "", "getTasksByDatesLiveData", "Landroidx/lifecycle/LiveData;", "", "dateFrom", "Ljava/util/Date;", "dateTo", "solved", "", "updateTask", "task", "Companion", "DownloadTasks", "UpdateTask", "app_debug"})
 public final class TaskRepository {
     private final pl.jaworskimateusz.machineservice.session.SessionManager sessionManager = null;
     private final pl.jaworskimateusz.machineservice.services.UserServiceAPI userServiceAPI = null;
@@ -19,6 +19,15 @@ public final class TaskRepository {
     }
     
     public final void downloadTasksFromService() {
+    }
+    
+    public final void updateTask(@org.jetbrains.annotations.NotNull()
+    pl.jaworskimateusz.machineservice.data.entity.Task task) {
+    }
+    
+    @org.jetbrains.annotations.NotNull()
+    public final pl.jaworskimateusz.machineservice.data.entity.Task getTaskById(long taskId) {
+        return null;
     }
     
     public TaskRepository(@org.jetbrains.annotations.NotNull()
@@ -40,6 +49,30 @@ public final class TaskRepository {
         }
         
         public DownloadTasks() {
+            super();
+        }
+    }
+    
+    @android.annotation.SuppressLint(value = {"StaticFieldLeak"})
+    @kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0002\b\u0002\b\u0087\u0004\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\r\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006J\'\u0010\t\u001a\u0004\u0018\u00010\u00032\u0016\u0010\n\u001a\f\u0012\b\b\u0001\u0012\u0004\u0018\u00010\u00020\u000b\"\u0004\u0018\u00010\u0002H\u0014\u00a2\u0006\u0002\u0010\fR\u0011\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\b\u00a8\u0006\r"}, d2 = {"Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository$UpdateTask;", "Landroid/os/AsyncTask;", "Ljava/lang/Void;", "Lpl/jaworskimateusz/machineservice/dto/TaskDto;", "task", "Lpl/jaworskimateusz/machineservice/data/entity/Task;", "(Lpl/jaworskimateusz/machineservice/data/repository/TaskRepository;Lpl/jaworskimateusz/machineservice/data/entity/Task;)V", "getTask", "()Lpl/jaworskimateusz/machineservice/data/entity/Task;", "doInBackground", "params", "", "([Ljava/lang/Void;)Lpl/jaworskimateusz/machineservice/dto/TaskDto;", "app_debug"})
+    public final class UpdateTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, pl.jaworskimateusz.machineservice.dto.TaskDto> {
+        @org.jetbrains.annotations.NotNull()
+        private final pl.jaworskimateusz.machineservice.data.entity.Task task = null;
+        
+        @org.jetbrains.annotations.Nullable()
+        @java.lang.Override()
+        protected pl.jaworskimateusz.machineservice.dto.TaskDto doInBackground(@org.jetbrains.annotations.NotNull()
+        java.lang.Void... params) {
+            return null;
+        }
+        
+        @org.jetbrains.annotations.NotNull()
+        public final pl.jaworskimateusz.machineservice.data.entity.Task getTask() {
+            return null;
+        }
+        
+        public UpdateTask(@org.jetbrains.annotations.NotNull()
+        pl.jaworskimateusz.machineservice.data.entity.Task task) {
             super();
         }
     }

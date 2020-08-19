@@ -4,7 +4,6 @@ import dagger.MembersInjector;
 import javax.annotation.Generated;
 import javax.inject.Provider;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity;
-import pl.jaworskimateusz.machineservice.data.repository.TaskRepository;
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI;
 import pl.jaworskimateusz.machineservice.session.SessionManager;
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory;
@@ -20,33 +19,24 @@ public final class TasksActivity_MembersInjector implements MembersInjector<Task
 
   private final Provider<TaskViewModelFactory> taskViewModelFactoryProvider;
 
-  private final Provider<TaskRepository> taskRepositoryProvider;
-
   public TasksActivity_MembersInjector(
       Provider<SessionManager> sessionManagerProvider,
       Provider<AuthenticationServiceAPI> authenticationServiceApiProvider,
-      Provider<TaskViewModelFactory> taskViewModelFactoryProvider,
-      Provider<TaskRepository> taskRepositoryProvider) {
+      Provider<TaskViewModelFactory> taskViewModelFactoryProvider) {
     assert sessionManagerProvider != null;
     this.sessionManagerProvider = sessionManagerProvider;
     assert authenticationServiceApiProvider != null;
     this.authenticationServiceApiProvider = authenticationServiceApiProvider;
     assert taskViewModelFactoryProvider != null;
     this.taskViewModelFactoryProvider = taskViewModelFactoryProvider;
-    assert taskRepositoryProvider != null;
-    this.taskRepositoryProvider = taskRepositoryProvider;
   }
 
   public static MembersInjector<TasksActivity> create(
       Provider<SessionManager> sessionManagerProvider,
       Provider<AuthenticationServiceAPI> authenticationServiceApiProvider,
-      Provider<TaskViewModelFactory> taskViewModelFactoryProvider,
-      Provider<TaskRepository> taskRepositoryProvider) {
+      Provider<TaskViewModelFactory> taskViewModelFactoryProvider) {
     return new TasksActivity_MembersInjector(
-        sessionManagerProvider,
-        authenticationServiceApiProvider,
-        taskViewModelFactoryProvider,
-        taskRepositoryProvider);
+        sessionManagerProvider, authenticationServiceApiProvider, taskViewModelFactoryProvider);
   }
 
   @Override
@@ -58,6 +48,5 @@ public final class TasksActivity_MembersInjector implements MembersInjector<Task
         .injectSessionManager(instance, sessionManagerProvider);
     ((BaseActivity) instance).authenticationServiceApi = authenticationServiceApiProvider.get();
     instance.taskViewModelFactory = taskViewModelFactoryProvider.get();
-    instance.taskRepository = taskRepositoryProvider.get();
   }
 }

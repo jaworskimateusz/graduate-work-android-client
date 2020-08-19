@@ -15,6 +15,8 @@ import pl.jaworskimateusz.machineservice.activity.MainActivity;
 import pl.jaworskimateusz.machineservice.activity.MainActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity;
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.activity.TaskDetailActivity;
+import pl.jaworskimateusz.machineservice.activity.TaskDetailActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.TasksActivity;
 import pl.jaworskimateusz.machineservice.activity.TasksActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity;
@@ -56,6 +58,8 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<TaskViewModelFactory> provideTaskListViewModelFactoryProvider;
 
   private MembersInjector<TasksActivity> tasksActivityMembersInjector;
+
+  private MembersInjector<TaskDetailActivity> taskDetailActivityMembersInjector;
 
   private DaggerAppComponent(Builder builder) {
     assert builder != null;
@@ -130,8 +134,13 @@ public final class DaggerAppComponent implements AppComponent {
         TasksActivity_MembersInjector.create(
             provideSessionManagerProvider,
             provideAuthenticationServiceApiProvider,
-            provideTaskListViewModelFactoryProvider,
-            provideTaskRepositoryProvider);
+            provideTaskListViewModelFactoryProvider);
+
+    this.taskDetailActivityMembersInjector =
+        TaskDetailActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideTaskListViewModelFactoryProvider);
   }
 
   @Override
@@ -162,6 +171,11 @@ public final class DaggerAppComponent implements AppComponent {
   @Override
   public void inject(TasksActivity target) {
     tasksActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(TaskDetailActivity target) {
+    taskDetailActivityMembersInjector.injectMembers(target);
   }
 
   public static final class Builder {
