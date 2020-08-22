@@ -38,4 +38,15 @@ class MainActivity : BaseActivity() {
         startActivity(intent)
     }
 
+    fun navigateMachines(view: View) {
+        val intent = Intent(this, MachinesActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun navigateIssues(view: View) {
+        makeToast("Issues")
+//        val intent = Intent(this, TasksActivity::class.java)
+//        startActivity(intent)
+    }
+
 }

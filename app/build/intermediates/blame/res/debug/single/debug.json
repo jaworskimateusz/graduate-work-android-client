@@ -32,12 +32,12 @@
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/item_task.xml"
     },
     {
-        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/drawable_ic_task_detail.xml.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/drawable/ic_task_detail.xml"
+    },
+    {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_foreground.png.flat",
@@ -46,6 +46,14 @@
     {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/drawable_ic_image.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/drawable/ic_image.xml"
+    },
+    {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_item_machine.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/item_machine.xml"
     },
     {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
@@ -88,6 +96,10 @@
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_activity_machines.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/activity_machines.xml"
+    },
+    {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
@@ -112,12 +124,12 @@
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/drawable-hdpi/layout_bg.xml"
     },
     {
-        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_app_bar.xml.flat",
-        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/app_bar.xml"
-    },
-    {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_app_bar.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/app_bar.xml"
     },
     {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",

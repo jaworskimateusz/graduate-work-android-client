@@ -68,7 +68,7 @@ class TaskDetailActivity : BaseActivity() {
             makeToast(getString(R.string.task_solved))
         else {
             task.solved = 1
-            taskViewModel.taskRepository.updateTask(task)
+            taskViewModel.taskRepository.UpdateTask(task).execute()
             finish()
         }
     }

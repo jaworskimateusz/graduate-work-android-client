@@ -38,7 +38,11 @@
             android:theme="@style/AppTheme.Dark.NoActionBar" />
         <activity
             android:name="pl.jaworskimateusz.machineservice.activity.TaskDetailActivity"
-            android:label="@string/tasks"
+            android:label="@string/task_detail"
+            android:theme="@style/AppTheme.Dark.NoActionBar" />
+        <activity
+            android:name="pl.jaworskimateusz.machineservice.activity.MachinesActivity"
+            android:label="@string/machines"
             android:theme="@style/AppTheme.Dark.NoActionBar" />
         <activity
             android:name="pl.jaworskimateusz.machineservice.activity.LoginActivity"

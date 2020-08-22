@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
+import pl.jaworskimateusz.machineservice.activity.MachinesActivity
 import pl.jaworskimateusz.machineservice.activity.MainActivity
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity
 import pl.jaworskimateusz.machineservice.activity.TasksActivity
@@ -61,23 +62,22 @@ open class BaseActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)
                 }
-                R.id.nav_logout -> {
-                    sessionManager.logout()
+                R.id.nav_report_problem -> startActivityWithIntent(Intent(this, ReportProblemActivity::class.java))
+                R.id.nav_tasks -> startActivityWithIntent(Intent(this, TasksActivity::class.java))
+                R.id.nav_machines -> startActivityWithIntent(Intent(this, MachinesActivity::class.java))
+                R.id.nav_issues -> {
+//                    startActivityWithIntent(Intent(this, IssuesActivity::class.java))
                 }
-                R.id.nav_report_problem -> {
-                    val intent = Intent(this, ReportProblemActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-                    startActivity(intent)
-                }
-                R.id.nav_tasks -> {
-                    val intent = Intent(this, TasksActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-                    startActivity(intent)
-                }
+                R.id.nav_logout -> sessionManager.logout()
             }
 
             true
         }
+    }
+
+    private fun startActivityWithIntent(intent: Intent) {
+        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

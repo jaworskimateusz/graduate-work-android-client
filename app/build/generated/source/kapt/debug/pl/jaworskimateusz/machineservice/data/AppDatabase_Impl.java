@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Generated;
+import pl.jaworskimateusz.machineservice.data.dao.MachineDao;
+import pl.jaworskimateusz.machineservice.data.dao.MachineDao_Impl;
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao;
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao_Impl;
 
@@ -29,6 +31,8 @@ import pl.jaworskimateusz.machineservice.data.dao.TaskDao_Impl;
 public final class AppDatabase_Impl extends AppDatabase {
   private volatile TaskDao _taskDao;
 
+  private volatile MachineDao _machineDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -36,14 +40,16 @@ public final class AppDatabase_Impl extends AppDatabase {
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `code` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `image` BLOB, `service_instruction` BLOB, PRIMARY KEY(`machineId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3ce82895ae9043c0cb78cbc7ef8afde0\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d0b5acf1985a8e666e99d5a3256af5ec\")");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `users`");
         _db.execSQL("DROP TABLE IF EXISTS `tasks`");
+        _db.execSQL("DROP TABLE IF EXISTS `machines`");
       }
 
       @Override
@@ -104,8 +110,24 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoTasks + "\n"
                   + " Found:\n" + _existingTasks);
         }
+        final HashMap<String, TableInfo.Column> _columnsMachines = new HashMap<String, TableInfo.Column>(6);
+        _columnsMachines.put("machineId", new TableInfo.Column("machineId", "INTEGER", true, 1));
+        _columnsMachines.put("code", new TableInfo.Column("code", "TEXT", true, 0));
+        _columnsMachines.put("name", new TableInfo.Column("name", "TEXT", true, 0));
+        _columnsMachines.put("description", new TableInfo.Column("description", "TEXT", true, 0));
+        _columnsMachines.put("image", new TableInfo.Column("image", "BLOB", false, 0));
+        _columnsMachines.put("service_instruction", new TableInfo.Column("service_instruction", "BLOB", false, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysMachines = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesMachines = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoMachines = new TableInfo("machines", _columnsMachines, _foreignKeysMachines, _indicesMachines);
+        final TableInfo _existingMachines = TableInfo.read(_db, "machines");
+        if (! _infoMachines.equals(_existingMachines)) {
+          throw new IllegalStateException("Migration didn't properly handle machines(pl.jaworskimateusz.machineservice.data.entity.Machine).\n"
+                  + " Expected:\n" + _infoMachines + "\n"
+                  + " Found:\n" + _existingMachines);
+        }
       }
-    }, "3ce82895ae9043c0cb78cbc7ef8afde0", "a5e7be3d814fa1e5e3e0905d8bad7d2e");
+    }, "d0b5acf1985a8e666e99d5a3256af5ec", "430324f88c4c45e69ef8775fb4c6aa23");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -118,7 +140,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks","machines");
   }
 
   @Override
@@ -129,6 +151,7 @@ public final class AppDatabase_Impl extends AppDatabase {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `users`");
       _db.execSQL("DELETE FROM `tasks`");
+      _db.execSQL("DELETE FROM `machines`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -149,6 +172,20 @@ public final class AppDatabase_Impl extends AppDatabase {
           _taskDao = new TaskDao_Impl(this);
         }
         return _taskDao;
+      }
+    }
+  }
+
+  @Override
+  public MachineDao machineDao() {
+    if (_machineDao != null) {
+      return _machineDao;
+    } else {
+      synchronized(this) {
+        if(_machineDao == null) {
+          _machineDao = new MachineDao_Impl(this);
+        }
+        return _machineDao;
       }
     }
   }

@@ -45,7 +45,7 @@ class TasksActivity : BaseActivity(), TaskRecyclerViewAdapter.OnTaskListener {
         setContentView(R.layout.activity_tasks)
         initDrawerLayout()
         if (NetworkManager.isNetworkAvailable(this))
-            taskViewModel.taskRepository.downloadTasksFromService()
+            taskViewModel.taskRepository.DownloadTasks().execute()
 
         taskAdapter = TaskRecyclerViewAdapter(this, this)
         tasksList = findViewById(R.id.tasks_list)

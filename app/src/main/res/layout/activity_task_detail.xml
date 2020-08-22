@@ -11,8 +11,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:id="@+id/constraint_layout"
             android:layout_height="match_parent"
-            tools:context=".activity.MainActivity">
+            tools:context=".activity.TaskDetailActivity">
 
         <include layout="@layout/app_bar"/>
 
@@ -57,23 +58,24 @@
             <TextView
                 android:id="@+id/tw_task_description"
                 android:layout_width="match_parent"
-                android:layout_height="390dp"
+                android:layout_height="wrap_content"
+                android:minLines="17"
                 android:layout_margin="30dp"
                 android:layout_marginTop="10dp"
                 android:scrollbars="vertical"
                 android:textSize="20sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:id="@+id/tw_solved_status"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="@string/not_solved_status"/>
-
-
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tw_solved_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            app:layout_constraintBottom_toBottomOf="@id/fab_save"
+            app:layout_constraintStart_toStartOf="@id/constraint_layout"
+            android:text="@string/not_solved_status"
+            android:textSize="20sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_save"

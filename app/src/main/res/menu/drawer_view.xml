@@ -10,23 +10,30 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_report_problem"
-                android:icon="@android:drawable/ic_dialog_alert"
-                android:title="@string/report_problem"/>
-    </group>
-
-    <group android:checkableBehavior="single">
-        <item
             android:id="@+id/nav_tasks"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="@string/tasks"/>
+
+        <item
+            android:id="@+id/nav_machines"
+            android:icon="@android:drawable/ic_lock_idle_charging"
+            android:title="@string/machines"/>
+
+        <item
+            android:id="@+id/nav_issues"
+            android:icon="@android:drawable/ic_dialog_alert"
+            android:title="@string/issues"/>
+        <item
+            android:id="@+id/nav_report_problem"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/report_problem"/>
     </group>
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_logout"
-            android:icon="@android:drawable/ic_menu_compass"
-            android:title="Logout"/>
+            android:icon="@android:drawable/ic_menu_revert"
+            android:title="@string/logout"/>
 
         <item
             android:id="@+id/version"

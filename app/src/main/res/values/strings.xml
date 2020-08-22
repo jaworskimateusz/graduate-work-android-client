@@ -5,9 +5,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="report_problem">Report problem</string>
     <string name="tasks">Tasks</string>
+    <string name="machines">Machines</string>
+    <string name="issues">Issues</string>
     <string name="task_detail">Task detail</string>
     <string name="date_from">date from</string>
     <string name="date_to">date to</string>
+    <string name="search_by_name">Search by name...</string>
     <string name="description">Description:</string>
     <string name="solved">solved:</string>
     <string name="solved_status">SOLVED</string>
@@ -21,6 +24,7 @@
     <string name="token_time_expired">Token time expired</string>
     <string name="data_send_faild">Error during uploading data</string>
     <string name="login_success">Login success</string>
+    <string name="logout">Logout</string>
     <string name="login_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="remember_me_hint">Remember me</string>

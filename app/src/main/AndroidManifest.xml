@@ -20,15 +20,19 @@
         <activity
             android:name=".activity.ReportProblemActivity"
             android:label="@string/title_activity_report_problem"
-            android:theme="@style/AppTheme.Dark.NoActionBar"></activity>
+            android:theme="@style/AppTheme.Dark.NoActionBar" />
         <activity
             android:name=".activity.TasksActivity"
             android:label="@string/tasks"
-            android:theme="@style/AppTheme.Dark.NoActionBar"></activity>
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
         <activity
             android:name=".activity.TaskDetailActivity"
-            android:label="@string/tasks"
-            android:theme="@style/AppTheme.Dark.NoActionBar"></activity>
+            android:label="@string/task_detail"
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
+        <activity
+            android:name=".activity.MachinesActivity"
+            android:label="@string/machines"
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.Dark" />
