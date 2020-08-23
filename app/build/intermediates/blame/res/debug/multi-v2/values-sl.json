@@ -72,6 +72,23 @@
                     }
                 },
                 {
+                    "source": "/Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/res/values-sl/values-sl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,114,165,318",
+                        "endColumns": "58,50,152,99",
+                        "endOffsets": "109,160,313,413"
+                    },
+                    "to": {
+                        "startLines": "51,52,53,54",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "5979,6038,6089,6242",
+                        "endColumns": "58,50,152,99",
+                        "endOffsets": "6033,6084,6237,6337"
+                    }
+                },
+                {
                     "source": "/Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/e41bdb5995ac05391d8d4aeb102949e6/navigation-ui-2.1.0/res/values-sl/values-sl.xml",
                     "from": {
                         "startLines": "2,3",

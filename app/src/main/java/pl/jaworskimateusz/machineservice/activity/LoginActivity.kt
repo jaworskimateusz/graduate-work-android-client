@@ -1,5 +1,6 @@
 package pl.jaworskimateusz.machineservice.activity
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -19,10 +20,11 @@ import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
-    var etUsername: EditText? = null
-    var etPassword: EditText? = null
-    var btnLogin: Button? = null
-    var cbRememberMe: CheckBox? = null
+    private lateinit var etUsername: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnLogin: Button
+    private lateinit var cbRememberMe: CheckBox
+    private lateinit var loadingDialog: ProgressDialog
 
     private lateinit var sessionManager: SessionManager
 
@@ -40,11 +42,11 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btn_login)
         cbRememberMe = findViewById(R.id.remember_me)
 
-        btnLogin!!.setOnClickListener { login() }
+        btnLogin.setOnClickListener { login() }
         if (sessionManager.rememberMe) {
-            etUsername!!.setText(sessionManager.login)
-            etPassword!!.setText(sessionManager.password)
-            cbRememberMe!!.isChecked = sessionManager.rememberMe
+            etUsername.setText(sessionManager.login)
+            etPassword.setText(sessionManager.password)
+            cbRememberMe.isChecked = sessionManager.rememberMe
         }
 
     }
@@ -55,11 +57,15 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        val username = etUsername!!.text.toString()
-        val password = etPassword!!.text.toString()
-        if (NetworkManager.isNetworkAvailable(this.applicationContext))
+        val username = etUsername.text.toString()
+        val password = etPassword.text.toString()
+        if (NetworkManager.isNetworkAvailable(this.applicationContext)) {
+            loadingDialog = ProgressDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog)
+            loadingDialog.setTitle(R.string.loading)
+            loadingDialog.isIndeterminate = true
+            loadingDialog.show()
             createToken(username, password)
-        else {
+        } else {
             Toast.makeText(baseContext, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show()
         }
 
@@ -77,12 +83,15 @@ class LoginActivity : AppCompatActivity() {
                     } catch (e: IOException) {
                         e.printStackTrace()
                     }
+                    loadingDialog.dismiss()
                     onLoginSuccess()
                 } else {
+                    loadingDialog.dismiss()
                     onLoginFailed()
                 }
             }
             override fun onFailure(call: Call<LoginResponse>, throwable: Throwable) {
+                loadingDialog.dismiss()
                 onLoginFailed()
             }
         })
@@ -96,7 +105,7 @@ class LoginActivity : AppCompatActivity() {
             user.password,
             token
         )
-        sessionManager.rememberMe = cbRememberMe!!.isChecked
+        sessionManager.rememberMe = cbRememberMe.isChecked
     }
 
     override fun onBackPressed() {
@@ -104,8 +113,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validate(): Boolean {
-        val username = etUsername?.text.toString()
-        val password = etPassword?.text.toString()
+        val username = etUsername.text.toString()
+        val password = etPassword.text.toString()
         if (username.isEmpty() || password.isEmpty())
             return false
         return true
@@ -113,7 +122,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun onLoginSuccess() {
         Toast.makeText(baseContext, getString(R.string.login_success), Toast.LENGTH_LONG).show()
-        btnLogin!!.isEnabled = true
+        btnLogin.isEnabled = true
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

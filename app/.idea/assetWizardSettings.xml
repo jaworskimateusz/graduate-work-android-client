@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/redeem/baseline_redeem_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/cloud_download/baseline_cloud_download_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -30,7 +30,7 @@
                           <map>
                             <entry key="color" value="0e134c" />
                             <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="ic_image" />
+                            <entry key="outputName" value="ic_download" />
                           </map>
                         </option>
                       </PersistentState>

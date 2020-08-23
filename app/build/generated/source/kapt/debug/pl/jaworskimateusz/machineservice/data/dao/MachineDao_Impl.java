@@ -30,21 +30,21 @@ public final class MachineDao_Impl implements MachineDao {
     this.__insertionAdapterOfMachine = new EntityInsertionAdapter<Machine>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `machines`(`machineId`,`code`,`name`,`description`,`image`,`service_instruction`) VALUES (?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `machines`(`machineId`,`name`,`code`,`description`,`image`,`serviceInstruction`) VALUES (?,?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Machine value) {
         stmt.bindLong(1, value.getMachineId());
-        if (value.getCode() == null) {
+        if (value.getName() == null) {
           stmt.bindNull(2);
         } else {
-          stmt.bindString(2, value.getCode());
+          stmt.bindString(2, value.getName());
         }
-        if (value.getName() == null) {
+        if (value.getCode() == null) {
           stmt.bindNull(3);
         } else {
-          stmt.bindString(3, value.getName());
+          stmt.bindString(3, value.getCode());
         }
         if (value.getDescription() == null) {
           stmt.bindNull(4);
@@ -54,12 +54,12 @@ public final class MachineDao_Impl implements MachineDao {
         if (value.getImage() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindBlob(5, value.getImage());
+          stmt.bindString(5, value.getImage());
         }
-        if (value.getService_instruction() == null) {
+        if (value.getServiceInstruction() == null) {
           stmt.bindNull(6);
         } else {
-          stmt.bindBlob(6, value.getService_instruction());
+          stmt.bindString(6, value.getServiceInstruction());
         }
       }
     };
@@ -97,27 +97,27 @@ public final class MachineDao_Impl implements MachineDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false);
         try {
           final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
-          final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
-          final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "service_instruction");
+          final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
           final List<Machine> _result = new ArrayList<Machine>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Machine _item;
             final long _tmpMachineId;
             _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
-            final String _tmpCode;
-            _tmpCode = _cursor.getString(_cursorIndexOfCode);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpCode;
+            _tmpCode = _cursor.getString(_cursorIndexOfCode);
             final String _tmpDescription;
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-            final byte[] _tmpImage;
-            _tmpImage = _cursor.getBlob(_cursorIndexOfImage);
-            final byte[] _tmpService_instruction;
-            _tmpService_instruction = _cursor.getBlob(_cursorIndexOfServiceInstruction);
-            _item = new Machine(_tmpMachineId,_tmpCode,_tmpName,_tmpDescription,_tmpImage,_tmpService_instruction);
+            final String _tmpImage;
+            _tmpImage = _cursor.getString(_cursorIndexOfImage);
+            final String _tmpServiceInstruction;
+            _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
+            _item = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
             _result.add(_item);
           }
           return _result;
@@ -149,27 +149,27 @@ public final class MachineDao_Impl implements MachineDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false);
         try {
           final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
-          final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
-          final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "service_instruction");
+          final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
           final List<Machine> _result = new ArrayList<Machine>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Machine _item;
             final long _tmpMachineId;
             _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
-            final String _tmpCode;
-            _tmpCode = _cursor.getString(_cursorIndexOfCode);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpCode;
+            _tmpCode = _cursor.getString(_cursorIndexOfCode);
             final String _tmpDescription;
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-            final byte[] _tmpImage;
-            _tmpImage = _cursor.getBlob(_cursorIndexOfImage);
-            final byte[] _tmpService_instruction;
-            _tmpService_instruction = _cursor.getBlob(_cursorIndexOfServiceInstruction);
-            _item = new Machine(_tmpMachineId,_tmpCode,_tmpName,_tmpDescription,_tmpImage,_tmpService_instruction);
+            final String _tmpImage;
+            _tmpImage = _cursor.getString(_cursorIndexOfImage);
+            final String _tmpServiceInstruction;
+            _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
+            _item = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
             _result.add(_item);
           }
           return _result;
@@ -192,27 +192,27 @@ public final class MachineDao_Impl implements MachineDao {
     final Cursor _cursor = DBUtil.query(__db, _statement, false);
     try {
       final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
-      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
       final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
       final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
-      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "service_instruction");
+      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
       final List<Machine> _result = new ArrayList<Machine>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Machine _item;
         final long _tmpMachineId;
         _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
-        final String _tmpCode;
-        _tmpCode = _cursor.getString(_cursorIndexOfCode);
         final String _tmpName;
         _tmpName = _cursor.getString(_cursorIndexOfName);
+        final String _tmpCode;
+        _tmpCode = _cursor.getString(_cursorIndexOfCode);
         final String _tmpDescription;
         _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-        final byte[] _tmpImage;
-        _tmpImage = _cursor.getBlob(_cursorIndexOfImage);
-        final byte[] _tmpService_instruction;
-        _tmpService_instruction = _cursor.getBlob(_cursorIndexOfServiceInstruction);
-        _item = new Machine(_tmpMachineId,_tmpCode,_tmpName,_tmpDescription,_tmpImage,_tmpService_instruction);
+        final String _tmpImage;
+        _tmpImage = _cursor.getString(_cursorIndexOfImage);
+        final String _tmpServiceInstruction;
+        _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
+        _item = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
         _result.add(_item);
       }
       return _result;
@@ -231,26 +231,69 @@ public final class MachineDao_Impl implements MachineDao {
     final Cursor _cursor = DBUtil.query(__db, _statement, false);
     try {
       final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
-      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
       final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
       final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
       final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
-      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "service_instruction");
+      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
       final Machine _result;
       if(_cursor.moveToFirst()) {
         final long _tmpMachineId;
         _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
-        final String _tmpCode;
-        _tmpCode = _cursor.getString(_cursorIndexOfCode);
         final String _tmpName;
         _tmpName = _cursor.getString(_cursorIndexOfName);
+        final String _tmpCode;
+        _tmpCode = _cursor.getString(_cursorIndexOfCode);
         final String _tmpDescription;
         _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-        final byte[] _tmpImage;
-        _tmpImage = _cursor.getBlob(_cursorIndexOfImage);
-        final byte[] _tmpService_instruction;
-        _tmpService_instruction = _cursor.getBlob(_cursorIndexOfServiceInstruction);
-        _result = new Machine(_tmpMachineId,_tmpCode,_tmpName,_tmpDescription,_tmpImage,_tmpService_instruction);
+        final String _tmpImage;
+        _tmpImage = _cursor.getString(_cursorIndexOfImage);
+        final String _tmpServiceInstruction;
+        _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
+        _result = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
+      } else {
+        _result = null;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
+  @Override
+  public Machine getByCode(final String code) {
+    final String _sql = "SELECT * FROM machines WHERE code=?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (code == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, code);
+    }
+    final Cursor _cursor = DBUtil.query(__db, _statement, false);
+    try {
+      final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
+      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
+      final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+      final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
+      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
+      final Machine _result;
+      if(_cursor.moveToFirst()) {
+        final long _tmpMachineId;
+        _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
+        final String _tmpName;
+        _tmpName = _cursor.getString(_cursorIndexOfName);
+        final String _tmpCode;
+        _tmpCode = _cursor.getString(_cursorIndexOfCode);
+        final String _tmpDescription;
+        _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        final String _tmpImage;
+        _tmpImage = _cursor.getString(_cursorIndexOfImage);
+        final String _tmpServiceInstruction;
+        _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
+        _result = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
       } else {
         _result = null;
       }

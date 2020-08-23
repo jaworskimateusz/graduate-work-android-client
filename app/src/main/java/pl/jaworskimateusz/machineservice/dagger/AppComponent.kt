@@ -1,5 +1,3 @@
-
-
 package pl.jaworskimateusz.machineservice.dagger
 
 import dagger.Component
@@ -20,5 +18,7 @@ interface AppComponent{
     fun inject(target: ReportProblemActivity)
     fun inject(target: TasksActivity)
     fun inject(target: TaskDetailActivity)
+    fun inject(target: MachinesActivity)
+    fun inject(target: MachineDetailActivity)
 
 }

@@ -25,6 +25,9 @@ interface MachineDao {
     @Query("SELECT * FROM machines WHERE machineId=:machineId")
     fun getById(machineId: Long): Machine
 
+    @Query("SELECT * FROM machines WHERE code=:code")
+    fun getByCode(code: String): Machine
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(item: Machine)
 

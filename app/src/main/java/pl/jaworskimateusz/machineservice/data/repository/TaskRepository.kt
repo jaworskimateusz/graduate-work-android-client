@@ -44,7 +44,6 @@ class TaskRepository constructor(
             if (response.isSuccessful) {
                 val tasks = TaskMapper.mapToTaskDtoList(response.body()!!)
                 taskDao.insertAllTasks(tasks)
-                taskDao.getAllTasks()
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                 Log.e(TAG, errorResponse?.error)

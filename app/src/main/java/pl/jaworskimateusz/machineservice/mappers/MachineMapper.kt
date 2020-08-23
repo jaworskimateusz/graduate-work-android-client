@@ -17,7 +17,7 @@ class MachineMapper {
                     machine.code,
                     machine.description,
                     machine.image,
-                    machine.service_instruction
+                    machine.serviceInstruction
             )
         }
 

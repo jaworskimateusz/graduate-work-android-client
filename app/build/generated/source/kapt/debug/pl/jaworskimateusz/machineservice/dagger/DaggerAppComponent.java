@@ -11,6 +11,10 @@ import okhttp3.OkHttpClient;
 import pl.jaworskimateusz.machineservice.MachineServiceApplication;
 import pl.jaworskimateusz.machineservice.activity.LoginActivity;
 import pl.jaworskimateusz.machineservice.activity.LoginActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.activity.MachineDetailActivity;
+import pl.jaworskimateusz.machineservice.activity.MachineDetailActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.activity.MachinesActivity;
+import pl.jaworskimateusz.machineservice.activity.MachinesActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.MainActivity;
 import pl.jaworskimateusz.machineservice.activity.MainActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity;
@@ -21,10 +25,13 @@ import pl.jaworskimateusz.machineservice.activity.TasksActivity;
 import pl.jaworskimateusz.machineservice.activity.TasksActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity;
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.data.repository.MachineRepository;
 import pl.jaworskimateusz.machineservice.data.repository.TaskRepository;
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI;
+import pl.jaworskimateusz.machineservice.services.MachineServiceAPI;
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI;
 import pl.jaworskimateusz.machineservice.session.SessionManager;
+import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModelFactory;
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory;
 import retrofit2.Retrofit;
 
@@ -60,6 +67,16 @@ public final class DaggerAppComponent implements AppComponent {
   private MembersInjector<TasksActivity> tasksActivityMembersInjector;
 
   private MembersInjector<TaskDetailActivity> taskDetailActivityMembersInjector;
+
+  private Provider<MachineServiceAPI> provideMachineServiceAPIProvider;
+
+  private Provider<MachineRepository> provideMachineRepositoryProvider;
+
+  private Provider<MachineViewModelFactory> provideMachineListViewModelFactoryProvider;
+
+  private MembersInjector<MachinesActivity> machinesActivityMembersInjector;
+
+  private MembersInjector<MachineDetailActivity> machineDetailActivityMembersInjector;
 
   private DaggerAppComponent(Builder builder) {
     assert builder != null;
@@ -141,6 +158,36 @@ public final class DaggerAppComponent implements AppComponent {
             provideSessionManagerProvider,
             provideAuthenticationServiceApiProvider,
             provideTaskListViewModelFactoryProvider);
+
+    this.provideMachineServiceAPIProvider =
+        DoubleCheck.provider(
+            PresenterModule_ProvideMachineServiceAPIFactory.create(
+                builder.presenterModule, provideRetrofitProvider, provideSessionManagerProvider));
+
+    this.provideMachineRepositoryProvider =
+        DoubleCheck.provider(
+            PresenterModule_ProvideMachineRepositoryFactory.create(
+                builder.presenterModule,
+                provideContextProvider,
+                provideSessionManagerProvider,
+                provideMachineServiceAPIProvider));
+
+    this.provideMachineListViewModelFactoryProvider =
+        DoubleCheck.provider(
+            PresenterModule_ProvideMachineListViewModelFactoryFactory.create(
+                builder.presenterModule, provideMachineRepositoryProvider));
+
+    this.machinesActivityMembersInjector =
+        MachinesActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideMachineListViewModelFactoryProvider);
+
+    this.machineDetailActivityMembersInjector =
+        MachineDetailActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideMachineListViewModelFactoryProvider);
   }
 
   @Override
@@ -176,6 +223,16 @@ public final class DaggerAppComponent implements AppComponent {
   @Override
   public void inject(TaskDetailActivity target) {
     taskDetailActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(MachinesActivity target) {
+    machinesActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(MachineDetailActivity target) {
+    machineDetailActivityMembersInjector.injectMembers(target);
   }
 
   public static final class Builder {

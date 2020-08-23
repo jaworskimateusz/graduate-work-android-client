@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
 MERGED from [androidx.databinding:databinding-adapters:4.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/78de48537f47c47c2e3be0ec46cf1045/databinding-adapters-4.0.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:4.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/3f5423e23ce793b48c43afd78a3916f9/databinding-runtime-4.0.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/1546b0934ae9a7fb139b55d0af73bee0/navigation-fragment-ktx-2.1.0/AndroidManifest.xml:17:1-24:12
@@ -15,6 +15,7 @@ MERGED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.g
 MERGED from [androidx.navigation:navigation-ui:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/e41bdb5995ac05391d8d4aeb102949e6/navigation-ui-2.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/417669ff9be95f78a229b6c2d25e0ca9/jetified-dagger-android-support-2.11/AndroidManifest.xml:16:1-19:12
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b489210023b4e591650fd25144ad3624/jetified-viewbinding-4.0.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d8702fb766ce9720f30d6894043003c0/sqlite-framework-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/9ce80ca56e8835120b2237430a15c20a/sqlite-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -22,11 +23,14 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/mateuszjawors
 MERGED from [androidx.appcompat:appcompat:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/7cc7a6f65337275695abc5f59f847083/appcompat-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.gridlayout:gridlayout:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/9ed6a4caaa20e76bc04373fb91db850d/gridlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/f3dbe6f90843045abe4143e3bf77be20/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:17:1-55:12
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/23ff37d5b195c329d3f4faf958ac091a/jetified-play-services-plus-16.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-audience:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/08a2a68093dc102bc3503b97f2db3b24/jetified-play-services-audience-16.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/47dd1ad7322301dd6eca01730fa3d29c/jetified-play-services-tasks-16.0.1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:17:1-28:12
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/150a077ba6d09f02e7e55a7442f84637/jetified-zxing-1.9/AndroidManifest.xml:2:1-13:12
+MERGED from [me.dm7.barcodescanner:core:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bf8b737aa06780ce71e42516cac8efab/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/0b89a6c4cfe410a22d9f831cb487a6d4/vectordrawable-animated-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/24e0220640645498700fd025d00cbee9/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -40,6 +44,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mateuszjaw
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ef7f8b788d30752a01fb2308ec81e29a/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.dagger:dagger-android:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/130e2af6656400499f4dd51e7fee658d/jetified-dagger-android-2.11/AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/1810aea4ce2a1227f21772ff132d1844/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d8c6ee57316f3cf6e7e88d0707166b1a/jetified-activity-ktx-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4ea022528024a6d9daa9a400b18bf7d1/jetified-lifecycle-viewmodel-ktx-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/6f645a8f33261a0506060eb36e54a9ba/navigation-runtime-ktx-2.1.0/AndroidManifest.xml:17:1-24:12
@@ -70,20 +75,20 @@ MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/mateuszjaworski/
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d86a462a03ac6ffb4f3ab144448281f8/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/aa817d39ca4f9f9f764e5a0b70163814/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/656c1ef9c96eb9844c4fefaa31eea625/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
 	package
 		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:3:5-48
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-55:12
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:1-64:12
 		INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:2:11-69
@@ -91,30 +96,40 @@ uses-permission#android.permission.INTERNET
 ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:21:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:22-62
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:5-79
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:5-79
 MERGED from [androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:24:5-79
 MERGED from [androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:22-76
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:5-81
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:5-81
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:22-78
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:5-80
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:9:5-80
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:22-77
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:9:22-77
 application
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:11:5-53:19
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:12:5-62:19
 MERGED from [androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:27:5-121:19
 MERGED from [androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:27:5-121:19
 MERGED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/557e9d48a20f1bd2fc5f97e286c27f05/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/557e9d48a20f1bd2fc5f97e286c27f05/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:45:5-53:19
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:45:5-53:19
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/23ff37d5b195c329d3f4faf958ac091a/jetified-play-services-plus-16.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/23ff37d5b195c329d3f4faf958ac091a/jetified-play-services-plus-16.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-audience:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/08a2a68093dc102bc3503b97f2db3b24/jetified-play-services-audience-16.0.0/AndroidManifest.xml:22:5-20
@@ -125,6 +140,10 @@ MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/mateuszja
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/47dd1ad7322301dd6eca01730fa3d29c/jetified-play-services-tasks-16.0.1/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:22:5-26:19
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/150a077ba6d09f02e7e55a7442f84637/jetified-zxing-1.9/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/150a077ba6d09f02e7e55a7442f84637/jetified-zxing-1.9/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/AndroidManifest.xml:11:5-20
 MERGED from [androidx.core:core:1.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ddc4d5d5d8ba7442d59e0399238a2056/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ddc4d5d5d8ba7442d59e0399238a2056/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/6118f679eabfffe3c12f082544a87853/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
@@ -136,85 +155,99 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/mateuszjaw
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ddc4d5d5d8ba7442d59e0399238a2056/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:17:9-41
 	android:roundIcon
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:17:9-54
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:18:9-54
 	android:configChanges
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:14:9-39
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:15:9-39
 	android:icon
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:16:9-43
 	android:allowBackup
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:18:9-45
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:19:9-45
 	android:usesCleartextTraffic
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:19:9-44
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:20:9-44
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:12:9-50
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:13:9-50
 activity#pl.jaworskimateusz.machineservice.activity.ReportProblemActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:20:9-23:64
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:21:9-24:64
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:22:13-66
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:23:13-66
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:23:13-61
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:24:13-61
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:21:13-59
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:22:13-59
 activity#pl.jaworskimateusz.machineservice.activity.TasksActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:24:9-27:63
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:25:9-28:63
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:26:13-42
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:27:13-42
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:27:13-61
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:28:13-61
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:25:13-51
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:26:13-51
 activity#pl.jaworskimateusz.machineservice.activity.TaskDetailActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:28:9-31:63
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:29:9-32:63
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:30:13-48
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:31:13-48
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:31:13-61
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:32:13-61
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:29:13-56
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:30:13-56
 activity#pl.jaworskimateusz.machineservice.activity.MachinesActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:32:9-35:63
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:33:9-36:63
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:34:13-45
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:35:13-45
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:35:13-61
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:36:13-61
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:33:13-54
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:34:13-54
+activity#pl.jaworskimateusz.machineservice.activity.MachineDetailActivity
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:38:9-41:63
+	android:label
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:40:13-51
+	android:theme
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:41:13-61
+	android:name
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:39:13-59
+activity#pl.jaworskimateusz.machineservice.activity.QrScannerActivity
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:42:9-44:51
+	android:theme
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:44:13-49
+	android:name
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:43:13-55
 activity#pl.jaworskimateusz.machineservice.activity.LoginActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:36:9-38:52
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:45:9-47:52
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:38:13-49
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:47:13-49
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:37:13-51
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:46:13-51
 activity#pl.jaworskimateusz.machineservice.activity.base.BaseActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:39:9-41:52
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:48:9-50:52
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:41:13-49
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:50:13-49
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:40:13-55
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:49:13-55
 activity#pl.jaworskimateusz.machineservice.activity.MainActivity
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:42:9-52:20
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:51:9-61:20
 	android:label
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:45:13-45
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:54:13-45
 	android:configChanges
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:44:13-43
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:53:13-43
 	android:theme
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:46:13-49
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:55:13-49
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:43:13-50
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:52:13-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:47:13-51:29
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:56:13-60:29
 action#android.intent.action.MAIN
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:48:17-69
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:57:17-69
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:48:25-66
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:57:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:50:17-77
+ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:59:17-77
 	android:name
-		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:50:27-74
+		ADDED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:59:27-74
 uses-sdk
 INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
@@ -241,6 +274,8 @@ MERGED from [com.google.android.material:material:1.0.0] /Users/mateuszjaworski/
 MERGED from [com.google.android.material:material:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b17dc223d7884187c5580c1b3b9ce20c/material-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/417669ff9be95f78a229b6c2d25e0ca9/jetified-dagger-android-support-2.11/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/417669ff9be95f78a229b6c2d25e0ca9/jetified-dagger-android-support-2.11/AndroidManifest.xml:18:3-42
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b489210023b4e591650fd25144ad3624/jetified-viewbinding-4.0.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b489210023b4e591650fd25144ad3624/jetified-viewbinding-4.0.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d8702fb766ce9720f30d6894043003c0/sqlite-framework-2.0.0/AndroidManifest.xml:20:5-44
@@ -255,6 +290,8 @@ MERGED from [androidx.gridlayout:gridlayout:1.0.0] /Users/mateuszjaworski/.gradl
 MERGED from [androidx.gridlayout:gridlayout:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/9ed6a4caaa20e76bc04373fb91db850d/gridlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/f3dbe6f90843045abe4143e3bf77be20/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/f3dbe6f90843045abe4143e3bf77be20/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:19:5-43
+MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:19:5-43
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/23ff37d5b195c329d3f4faf958ac091a/jetified-play-services-plus-16.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/23ff37d5b195c329d3f4faf958ac091a/jetified-play-services-plus-16.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-audience:16.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/08a2a68093dc102bc3503b97f2db3b24/jetified-play-services-audience-16.0.0/AndroidManifest.xml:20:5-44
@@ -265,6 +302,10 @@ MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/mateuszja
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/47dd1ad7322301dd6eca01730fa3d29c/jetified-play-services-tasks-16.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:20:5-44
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/150a077ba6d09f02e7e55a7442f84637/jetified-zxing-1.9/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/150a077ba6d09f02e7e55a7442f84637/jetified-zxing-1.9/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bf8b737aa06780ce71e42516cac8efab/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bf8b737aa06780ce71e42516cac8efab/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/0b89a6c4cfe410a22d9f831cb487a6d4/vectordrawable-animated-1.0.0/AndroidManifest.xml:20:5-44
@@ -291,6 +332,8 @@ MERGED from [androidx.cardview:cardview:1.0.0] /Users/mateuszjaworski/.gradle/ca
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ae0d43a8cd9e2d0dca0ee7612d373384/cardview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.dagger:dagger-android:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/130e2af6656400499f4dd51e7fee658d/jetified-dagger-android-2.11/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:dagger-android:2.11] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/130e2af6656400499f4dd51e7fee658d/jetified-dagger-android-2.11/AndroidManifest.xml:18:3-42
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/1810aea4ce2a1227f21772ff132d1844/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/1810aea4ce2a1227f21772ff132d1844/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-ktx:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d8c6ee57316f3cf6e7e88d0707166b1a/jetified-activity-ktx-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity-ktx:1.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d8c6ee57316f3cf6e7e88d0707166b1a/jetified-activity-ktx-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4ea022528024a6d9daa9a400b18bf7d1/jetified-lifecycle-viewmodel-ktx-2.1.0/AndroidManifest.xml:20:5-44
@@ -555,6 +598,64 @@ ADDED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gr
 		ADDED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:25:13-37
 	android:name
 		ADDED from [androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:24:13-74
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+uses-feature#android.hardware.camera
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:24:5-26:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:26:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:25:9-47
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:27:5-29:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:29:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:28:9-53
+uses-feature#android.hardware.camera.autofocus
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:32:5-34:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:34:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:33:9-57
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:35:5-37:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:37:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:36:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:38:5-40:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:40:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:39:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:41:5-43:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:43:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:42:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:46:9-52:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:49:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:48:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:50:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:52:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:51:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:47:13-74
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
 	android:exported

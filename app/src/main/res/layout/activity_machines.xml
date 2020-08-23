@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/constraint_layout"
-        tools:context=".activity.MachinesActivity">
+        tools:context=".activity.ReportProblemActivity">
 
         <include layout="@layout/app_bar" />
 
@@ -41,20 +41,16 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:ignore="MissingConstraints">
 
-            <ImageView
-                android:layout_width="36sp"
-                android:src="@android:drawable/ic_menu_search"
-                android:layout_height="match_parent"/>
-
             <EditText
                 android:id="@+id/et_machine_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
-                android:focusable="false"
+                android:focusable="true"
+                android:clickable="true"
                 android:gravity="center"
                 android:hint="@string/search_by_name"
-                android:inputType="date" />
+                android:inputType="text" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -74,7 +70,7 @@
             android:onClick="findByQrCode"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/constraint_layout"
-            app:srcCompat="@android:drawable/ic_search_category_default" />
+            app:srcCompat="@android:drawable/ic_menu_search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView

@@ -1,11 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Machine Service</string>
+    <string name="loading">Loading...</string>
     <string name="login_failed">Login Failed</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="report_problem">Report problem</string>
     <string name="tasks">Tasks</string>
     <string name="machines">Machines</string>
+    <string name="machine_detail">Machine Detail</string>
+    <string name="qr_code">QR code scanner</string>
     <string name="issues">Issues</string>
     <string name="task_detail">Task detail</string>
     <string name="date_from">date from</string>
@@ -15,6 +18,9 @@
     <string name="solved">solved:</string>
     <string name="solved_status">SOLVED</string>
     <string name="not_solved_status">NOT SOLVED</string>
+    <string name="view_issues">View issues</string>
+    <string name="download_instruction">Download instruction:</string>
+    <string name="make_service">Make service</string>
     <string name="task_solved">This task was solved</string>
     <string name="report_problem_description">If you see any issues with app please report it</string>
     <string name="hint_app_problem_description">Please enter description</string>
@@ -33,7 +39,6 @@
     <string name="login_user">Username: </string>
     <string name="full_name">Full name: </string>
     <string name="department_name">Department:</string>
-    <string name="loading">Loading...</string>
     <string name="btn_send_problem">Send Problem</string>
     <string name="cannot_be_empty">This field cannot be empty</string>
 

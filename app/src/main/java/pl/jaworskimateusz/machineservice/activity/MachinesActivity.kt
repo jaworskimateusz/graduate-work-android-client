@@ -1,5 +1,6 @@
 package pl.jaworskimateusz.machineservice.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,10 +14,10 @@ import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.adapter.MachineRecyclerViewAdapter
 import pl.jaworskimateusz.machineservice.data.entity.Machine
+import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModelFactory
 import javax.inject.Inject
-
 
 class MachinesActivity : BaseActivity(), MachineRecyclerViewAdapter.OnMachineListener {
 
@@ -35,17 +36,18 @@ class MachinesActivity : BaseActivity(), MachineRecyclerViewAdapter.OnMachineLis
         machineViewModel = ViewModelProviders.of(this, machineViewModelFactory).get(MachineViewModel::class.java)
         setContentView(R.layout.activity_machines)
         initDrawerLayout()
-//        if (NetworkManager.isNetworkAvailable(this))
-//            machineViewModel.machineRepository.downloadMachines().execute() //TODO
+        if (NetworkManager.isNetworkAvailable(this))
+            machineViewModel.machineRepository.DownloadMachines().execute()
 
         machineAdapter = MachineRecyclerViewAdapter(this, this)
         machinesList = findViewById(R.id.machines_list)
-        initSearch()
+        search()
         with(machinesList) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
             adapter = machineAdapter
         }
         observe()
+        machineViewModel.getMachinesByName("")
         super.onCreate(savedInstanceState)
     }
 
@@ -57,13 +59,13 @@ class MachinesActivity : BaseActivity(), MachineRecyclerViewAdapter.OnMachineLis
         })
     }
 
-    private fun initSearch() {
+    private fun search() {
         etName = findViewById(R.id.et_machine_name)
         etName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(c: CharSequence, start: Int, before: Int, count: Int) {
-                machineViewModel.getMachinesByName("name") //TODO
+                machineViewModel.getMachinesByName(etName.text.toString())
             }
         })
 
@@ -71,14 +73,13 @@ class MachinesActivity : BaseActivity(), MachineRecyclerViewAdapter.OnMachineLis
 
     override fun onMachineClick(position: Int) {
         val machineId = machines[position].machineId
-//        val intent = Intent(this, MachineDetailActivity::class.java)
-//        intent.putExtra("machineId", machineId)
-//        startActivity(intent)
-        makeToast("TODO $position")
+        val intent = Intent(this, MachineDetailActivity::class.java)
+        intent.putExtra("machineId", machineId)
+        startActivity(intent)
     }
 
     fun findByQrCode(view: View) {
-        //TODO start qr activity
+       startActivity(Intent(this, QrScannerActivity::class.java))
     }
 
 }

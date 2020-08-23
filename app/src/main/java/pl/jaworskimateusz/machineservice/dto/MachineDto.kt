@@ -5,6 +5,6 @@ data class MachineDto(
     val name: String,
     val code: String,
     val description: String,
-    val image: ByteArray?,
-    val service_instruction: ByteArray?
+    val image: String?,
+    val serviceInstruction: String?
 )

@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_machine.view.*
 import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.data.entity.Machine
@@ -38,11 +39,16 @@ class MachineRecyclerViewAdapter(val context: Context, private val onMachineList
     override fun onBindViewHolder(holder: MachineViewHolder, position: Int) {
         val item = getItem(position)
         holder.name.text = item.name
-//        val imageView =  holder.itemView.findViewById(R.id.image)
+
+        if (!item.image.isNullOrEmpty()) {
+            Picasso.get().load(item.image).placeholder(R.drawable.ic_empty_image).into(holder.image)
+        }
+
     }
 
     inner class MachineViewHolder(private val view: View, private val onMachineListener: OnMachineListener) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val name: TextView = view.tw_name
+        val image: ImageView = view.iw_image
 
         init {
             view.setOnClickListener(this)
@@ -51,15 +57,6 @@ class MachineRecyclerViewAdapter(val context: Context, private val onMachineList
         override fun onClick(p0: View?) {
             onMachineListener.onMachineClick(adapterPosition)
         }
-    }
-
-    private fun setSolved(imageView: ImageView, solved: Int) {
-        imageView.setImageDrawable(
-                if (solved == 1)
-                    ContextCompat.getDrawable(context, R.drawable.ic_task_solved)
-                else
-                    ContextCompat.getDrawable(context, R.drawable.ic_task_not_solved)
-        )
     }
 
     interface OnMachineListener {
