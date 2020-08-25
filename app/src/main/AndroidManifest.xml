@@ -42,6 +42,11 @@
         <activity
             android:name=".activity.QrScannerActivity"
             android:theme="@style/AppTheme.Dark"/>
+
+        <activity
+            android:name=".activity.PdfViewActivity"
+            android:theme="@style/AppTheme.Dark"/>
+
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.Dark" />

@@ -1,10 +1,12 @@
 package pl.jaworskimateusz.machineservice.services
 
+import okhttp3.ResponseBody
 import pl.jaworskimateusz.machineservice.dto.MachineDto
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.*
+
 
 interface MachineService {
 
@@ -20,6 +22,10 @@ interface MachineService {
                          @Query("code") code: String
     ): Call<MachineDto>
 
+    @Streaming
+    @GET
+    fun downloadFile(@Url fileUrl: String): Call<ResponseBody>
+
 }
 
 class MachineServiceAPI(retrofit: Retrofit, private var sessionManager: SessionManager) {
@@ -33,6 +39,10 @@ class MachineServiceAPI(retrofit: Retrofit, private var sessionManager: SessionM
 
     fun getMachineByCode(code: String): Call<MachineDto>{
         return machineService.getMachineByCode(sessionManager.token, code)
+    }
+
+    fun downloadFile(fileUrl: String): Call<ResponseBody> {
+        return machineService.downloadFile(fileUrl)
     }
 
 }

@@ -24,7 +24,7 @@ import retrofit2.Response
 
 class MachineRepository constructor(
         private val sessionManager: SessionManager,
-        private val machineServiceAPI: MachineServiceAPI,
+        val machineServiceAPI: MachineServiceAPI,
         private val machineDao: MachineDao,
         private val context: Context
 ) {

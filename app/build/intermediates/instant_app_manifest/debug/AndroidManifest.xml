@@ -73,6 +73,9 @@
             android:name="pl.jaworskimateusz.machineservice.activity.QrScannerActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
+            android:name="pl.jaworskimateusz.machineservice.activity.PdfViewActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
             android:name="pl.jaworskimateusz.machineservice.activity.LoginActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity

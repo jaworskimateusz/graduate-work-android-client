@@ -11,5 +11,5 @@ data class Machine(
         val code: String,
         val description: String,
         val image: String?,
-        val serviceInstruction: String?
+        val serviceInstruction: String
 )

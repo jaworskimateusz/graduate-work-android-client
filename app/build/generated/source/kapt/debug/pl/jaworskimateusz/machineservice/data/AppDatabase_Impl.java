@@ -40,9 +40,9 @@ public final class AppDatabase_Impl extends AppDatabase {
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `serviceInstruction` TEXT, PRIMARY KEY(`machineId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `serviceInstruction` TEXT NOT NULL, PRIMARY KEY(`machineId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9c06a4e3a2ec7b101e843dc7308a9c03\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ccffcc20c94efb9710cf0a8aa9cda87d\")");
       }
 
       @Override
@@ -116,7 +116,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsMachines.put("code", new TableInfo.Column("code", "TEXT", true, 0));
         _columnsMachines.put("description", new TableInfo.Column("description", "TEXT", true, 0));
         _columnsMachines.put("image", new TableInfo.Column("image", "TEXT", false, 0));
-        _columnsMachines.put("serviceInstruction", new TableInfo.Column("serviceInstruction", "TEXT", false, 0));
+        _columnsMachines.put("serviceInstruction", new TableInfo.Column("serviceInstruction", "TEXT", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysMachines = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesMachines = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoMachines = new TableInfo("machines", _columnsMachines, _foreignKeysMachines, _indicesMachines);
@@ -127,7 +127,7 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Found:\n" + _existingMachines);
         }
       }
-    }, "9c06a4e3a2ec7b101e843dc7308a9c03", "9a89cf1ed2471148812b9d3d4c4bdd6b");
+    }, "ccffcc20c94efb9710cf0a8aa9cda87d", "a6480b112735500cc247085987b71613");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
