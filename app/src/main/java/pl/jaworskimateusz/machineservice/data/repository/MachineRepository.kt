@@ -6,6 +6,7 @@ import android.os.AsyncTask
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import pl.jaworskimateusz.machineservice.data.dao.MachineDao
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.dto.MachineDto
@@ -17,6 +18,8 @@ import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
 import pl.jaworskimateusz.machineservice.utilities.DateUtils
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class MachineRepository constructor(
@@ -33,12 +36,26 @@ class MachineRepository constructor(
         return machineDao.getById(machineId)
     }
 
-    fun getMachineByCode(code: String): Machine {
+    fun getMachineByCode(code: String): LiveData<Machine> {
         val machine = machineDao.getByCode(code)
+        val liveData = MutableLiveData<Machine>()
         if (machine == null) {
-            //TODO load from API
+            machineServiceAPI.getMachineByCode(code).enqueue( object: Callback<MachineDto>{
+                override fun onResponse(call: Call<MachineDto>, response: Response<MachineDto>) {
+                    if (response.isSuccessful) {
+                        val item = response.body()?.let { MachineMapper.mapToMachine(it) }
+                        item?.let { machineDao.insert(it) }
+                        liveData.value = item
+                    }
+                }
+                override fun onFailure(call: Call<MachineDto>, t: Throwable) {
+                   Log.e(TAG, t.message)
+                }
+            })
+            return liveData
         }
-        return machine
+        liveData.value = machine
+        return liveData
     }
 
     @SuppressLint("StaticFieldLeak")

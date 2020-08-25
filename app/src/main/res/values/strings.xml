@@ -17,6 +17,7 @@
     <string name="description">Description:</string>
     <string name="solved">solved:</string>
     <string name="solved_status">SOLVED</string>
+    <string name="not_found">Machine not found</string>
     <string name="not_solved_status">NOT SOLVED</string>
     <string name="view_issues">View issues</string>
     <string name="download_instruction">Download instruction:</string>

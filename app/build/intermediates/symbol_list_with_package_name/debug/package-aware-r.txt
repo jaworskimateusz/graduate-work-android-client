@@ -1666,6 +1666,7 @@ string mtrl_chip_close_icon_content_description
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string no_internet_connection
+string not_found
 string not_solved_status
 string password_hint
 string password_toggle_content_description

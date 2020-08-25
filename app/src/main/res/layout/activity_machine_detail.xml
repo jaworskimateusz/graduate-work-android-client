@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:id="@+id/constraint_layout"
             android:layout_height="match_parent"
-            tools:context=".activity.TaskDetailActivity">
+            tools:context=".activity.MachineDetailActivity">
 
         <include layout="@layout/app_bar"/>
 
@@ -38,7 +38,7 @@
                         android:id="@+id/tw_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
+                        android:layout_marginStart="30dp"
                         android:text="Title"
                         android:textColor="@color/primary_darker"
                         android:textSize="36sp"
@@ -53,7 +53,7 @@
                         android:layout_marginTop="2dp"
                         android:text="Code"
                         android:textColor="@color/primary_darker"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="@id/parent"
                         app:layout_constraintTop_toBottomOf="@+id/tw_title" />
 
@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:text="@string/description"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -73,9 +73,9 @@
 
                     <ImageView
                         android:id="@+id/iw_image"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:layout_marginStart="120dp"/>
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="70dp"/>
 
                 </LinearLayout>
 
@@ -85,8 +85,8 @@
             android:id="@+id/tw_machine_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="13"
-            android:maxLines="13"
+            android:minLines="17"
+            android:maxLines="17"
             android:layout_margin="30dp"
             android:layout_marginTop="10dp"
             android:scrollbars="vertical"
