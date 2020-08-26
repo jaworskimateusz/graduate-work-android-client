@@ -39,6 +39,17 @@
             android:name=".activity.MachineDetailActivity"
             android:label="@string/machine_detail"
             android:theme="@style/AppTheme.Dark.NoActionBar"/>
+
+        <activity
+            android:name=".activity.IssuesActivity"
+            android:label="@string/issues"
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
+
+        <activity
+            android:name=".activity.IssueDetailActivity"
+            android:label="@string/issue_detail"
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
+
         <activity
             android:name=".activity.QrScannerActivity"
             android:theme="@style/AppTheme.Dark"/>

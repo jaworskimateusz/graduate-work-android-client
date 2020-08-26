@@ -63,7 +63,7 @@ class TaskRepository constructor(
             if (response.isSuccessful) {
                 taskDao.insert(task)
                 Log.d(TAG,"Task with id ${task.taskId} updated.")
-                makeToast("Task updated")
+//                makeToast("Task updated")
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                 Log.e(TAG, errorResponse?.error)

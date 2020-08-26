@@ -44,9 +44,9 @@ class MainActivity : BaseActivity() {
     }
 
     fun navigateIssues(view: View) {
-        makeToast("Issues")
-//        val intent = Intent(this, TasksActivity::class.java)
-//        startActivity(intent)
+        val intent = Intent(this, IssuesActivity::class.java)
+        intent.putExtra("readonly", true)
+        startActivity(intent)
     }
 
 }

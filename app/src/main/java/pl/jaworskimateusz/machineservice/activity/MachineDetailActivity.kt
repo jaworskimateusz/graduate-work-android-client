@@ -130,10 +130,7 @@ class MachineDetailActivity : BaseActivity() {
                                         applicationContext,
                                         response.body()!!,
                                         machine!!.serviceInstruction.substringAfterLast("/", "instruction.pdf"))
-
-                                this@MachineDetailActivity.runOnUiThread {
-                                    showPDF(file)
-                                }
+                                showPDF(file)
                                 progressDialog!!.dismiss()
                                 return null
                             }
@@ -152,8 +149,14 @@ class MachineDetailActivity : BaseActivity() {
         }
 
     }
-    fun viewMachineIssues(view: View) {}
-    fun makeMachineService(view: View) {}
+    fun viewMachineIssues(view: View) {
+        if (machine != null) {
+            val intent = Intent(this, IssuesActivity::class.java)
+            intent.putExtra("readonly", false)
+            intent.putExtra("machineId", machine!!.machineId)
+            startActivity(intent)
+        }
+    }
 
     private fun showPDF(file: File?) {
         if (file == null) {
@@ -164,6 +167,8 @@ class MachineDetailActivity : BaseActivity() {
             startActivity(intent)
         }
     }
+
+    fun makeMachineService(view: View) {}
 
     private fun showDialog() {
         progressDialog = ProgressDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog)

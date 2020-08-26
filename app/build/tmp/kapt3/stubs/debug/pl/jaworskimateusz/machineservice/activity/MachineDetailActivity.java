@@ -56,11 +56,11 @@ public final class MachineDetailActivity extends pl.jaworskimateusz.machineservi
     android.view.View view) {
     }
     
-    public final void makeMachineService(@org.jetbrains.annotations.NotNull()
-    android.view.View view) {
+    private final void showPDF(java.io.File file) {
     }
     
-    private final void showPDF(java.io.File file) {
+    public final void makeMachineService(@org.jetbrains.annotations.NotNull()
+    android.view.View view) {
     }
     
     private final void showDialog() {

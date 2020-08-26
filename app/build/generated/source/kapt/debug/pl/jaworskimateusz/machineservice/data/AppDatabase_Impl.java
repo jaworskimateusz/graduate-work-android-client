@@ -41,8 +41,9 @@ public final class AppDatabase_Impl extends AppDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `serviceInstruction` TEXT NOT NULL, PRIMARY KEY(`machineId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `issues` (`issueId` INTEGER, `keywords` TEXT NOT NULL, `description` TEXT NOT NULL, `solution` TEXT, `workerSignature` TEXT NOT NULL, `machineId` INTEGER NOT NULL, PRIMARY KEY(`issueId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ccffcc20c94efb9710cf0a8aa9cda87d\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6c7e66d7d8bb37e07374f43a93e97696\")");
       }
 
       @Override
@@ -50,6 +51,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         _db.execSQL("DROP TABLE IF EXISTS `users`");
         _db.execSQL("DROP TABLE IF EXISTS `tasks`");
         _db.execSQL("DROP TABLE IF EXISTS `machines`");
+        _db.execSQL("DROP TABLE IF EXISTS `issues`");
       }
 
       @Override
@@ -126,8 +128,24 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoMachines + "\n"
                   + " Found:\n" + _existingMachines);
         }
+        final HashMap<String, TableInfo.Column> _columnsIssues = new HashMap<String, TableInfo.Column>(6);
+        _columnsIssues.put("issueId", new TableInfo.Column("issueId", "INTEGER", false, 1));
+        _columnsIssues.put("keywords", new TableInfo.Column("keywords", "TEXT", true, 0));
+        _columnsIssues.put("description", new TableInfo.Column("description", "TEXT", true, 0));
+        _columnsIssues.put("solution", new TableInfo.Column("solution", "TEXT", false, 0));
+        _columnsIssues.put("workerSignature", new TableInfo.Column("workerSignature", "TEXT", true, 0));
+        _columnsIssues.put("machineId", new TableInfo.Column("machineId", "INTEGER", true, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysIssues = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesIssues = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoIssues = new TableInfo("issues", _columnsIssues, _foreignKeysIssues, _indicesIssues);
+        final TableInfo _existingIssues = TableInfo.read(_db, "issues");
+        if (! _infoIssues.equals(_existingIssues)) {
+          throw new IllegalStateException("Migration didn't properly handle issues(pl.jaworskimateusz.machineservice.data.entity.Issue).\n"
+                  + " Expected:\n" + _infoIssues + "\n"
+                  + " Found:\n" + _existingIssues);
+        }
       }
-    }, "ccffcc20c94efb9710cf0a8aa9cda87d", "a6480b112735500cc247085987b71613");
+    }, "6c7e66d7d8bb37e07374f43a93e97696", "bae8fee2dad95825ecc63f8bbdb87a3e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -140,7 +158,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks","machines");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks","machines","issues");
   }
 
   @Override
@@ -152,6 +170,7 @@ public final class AppDatabase_Impl extends AppDatabase {
       _db.execSQL("DELETE FROM `users`");
       _db.execSQL("DELETE FROM `tasks`");
       _db.execSQL("DELETE FROM `machines`");
+      _db.execSQL("DELETE FROM `issues`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();

@@ -8,16 +8,15 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import pl.jaworskimateusz.machineservice.data.dao.MachineDao
+import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
+import pl.jaworskimateusz.machineservice.dto.IssueDto
 import pl.jaworskimateusz.machineservice.dto.MachineDto
-import pl.jaworskimateusz.machineservice.dto.TaskDto
+import pl.jaworskimateusz.machineservice.mappers.IssueMapper
 import pl.jaworskimateusz.machineservice.mappers.MachineMapper
-import pl.jaworskimateusz.machineservice.mappers.TaskMapper
 import pl.jaworskimateusz.machineservice.services.MachineServiceAPI
-import pl.jaworskimateusz.machineservice.services.UserServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
-import pl.jaworskimateusz.machineservice.utilities.DateUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,6 +57,16 @@ class MachineRepository constructor(
         return liveData
     }
 
+    fun getIssuesByKeywordsLiveData(keywords: String, machineId: Long): LiveData<List<Issue>> {
+        if (machineId == 0L)
+            return machineDao.getIssuesByKeywordsLiveData(keywords)
+        return machineDao.getIssuesByKeywordsLiveData(keywords, machineId)
+    }
+
+    fun getIssueById(issueId: Long): Issue {
+        return machineDao.getIssueById(issueId)
+    }
+
     @SuppressLint("StaticFieldLeak")
     inner class DownloadMachines() : AsyncTask<Void, Void, MachineDto>() {
         override fun doInBackground(vararg params: Void?): MachineDto? {
@@ -72,6 +81,49 @@ class MachineRepository constructor(
                 if (errorResponse?.status == 401) {
                     sessionManager.logout()
                 }
+            }
+            return null
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class DownloadIssues(val machineId: Long) : AsyncTask<Void, Void, IssueDto>() {
+        override fun doInBackground(vararg params: Void?): IssueDto? {
+            var page = 0L
+            do {
+                val response: Response<List<IssueDto>> = if (machineId == 0L)
+                    machineServiceAPI.getIssues(page).execute()
+                else
+                    machineServiceAPI.getMachineIssues(machineId, page).execute()
+                if (response.isSuccessful) {
+                    val issues = IssueMapper.mapToIssueList(response.body()!!)
+                    machineDao.insertAllIssues(issues)
+                } else {
+                    val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                    errorResponse?.error?.let { makeToast(it) }
+                    if (errorResponse?.status == 401) {
+                        sessionManager.logout()
+                    }
+                }
+                page ++
+            } while (!response.body().isNullOrEmpty())
+            return null
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class SaveOrUpdateIssue(val machineId: Long, val issue: Issue) : AsyncTask<Void, Void, IssueDto>() {
+        override fun doInBackground(vararg params: Void?): IssueDto? {
+            val response =
+                    machineServiceAPI.saveOrUpdateIssue(machineId, IssueMapper.mapToIssueDto(issue)).execute()
+            if (response.isSuccessful) {
+                machineDao.insertIssue(IssueMapper.mapToIssue(response.body()!!))
+//                makeToast("Issue saved") //TODO how to toast
+                Log.d(TAG,"Issue saved")
+            } else {
+                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Log.e(TaskRepository.TAG, errorResponse?.error)
+//                errorResponse?.error?.let { makeToast(it) }
             }
             return null
         }

@@ -20,5 +20,7 @@ interface AppComponent{
     fun inject(target: TaskDetailActivity)
     fun inject(target: MachinesActivity)
     fun inject(target: MachineDetailActivity)
+    fun inject(target: IssuesActivity)
+    fun inject(target: IssueDetailActivity)
 
 }

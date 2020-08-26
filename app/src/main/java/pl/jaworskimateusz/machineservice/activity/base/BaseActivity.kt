@@ -12,10 +12,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
-import pl.jaworskimateusz.machineservice.activity.MachinesActivity
-import pl.jaworskimateusz.machineservice.activity.MainActivity
-import pl.jaworskimateusz.machineservice.activity.ReportProblemActivity
-import pl.jaworskimateusz.machineservice.activity.TasksActivity
+import pl.jaworskimateusz.machineservice.activity.*
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import javax.inject.Inject
@@ -39,6 +36,7 @@ open class BaseActivity : AppCompatActivity() {
         val actionbar: ActionBar? = supportActionBar
         actionbar?.apply {
             setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_drawer_home)
         }
     }
 
@@ -65,9 +63,9 @@ open class BaseActivity : AppCompatActivity() {
                 R.id.nav_report_problem -> startActivityWithIntent(Intent(this, ReportProblemActivity::class.java))
                 R.id.nav_tasks -> startActivityWithIntent(Intent(this, TasksActivity::class.java))
                 R.id.nav_machines -> startActivityWithIntent(Intent(this, MachinesActivity::class.java))
-                R.id.nav_issues -> {
-//                    startActivityWithIntent(Intent(this, IssuesActivity::class.java))
-                }
+                R.id.nav_issues -> startActivityWithIntent(
+                        Intent(this, IssuesActivity::class.java).putExtra("readonly", true)
+                )
                 R.id.nav_logout -> sessionManager.logout()
             }
 

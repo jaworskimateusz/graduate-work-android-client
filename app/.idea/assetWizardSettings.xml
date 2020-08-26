@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/cloud_download/baseline_cloud_download_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/dehaze/baseline_dehaze_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="0e134c" />
-                            <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="ic_download" />
+                            <entry key="color" value="efefef" />
+                            <entry key="opacityPercent" value="94" />
+                            <entry key="outputName" value="ic_drawer_home" />
                           </map>
                         </option>
                       </PersistentState>

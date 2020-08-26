@@ -9,6 +9,10 @@ import javax.annotation.Generated;
 import javax.inject.Provider;
 import okhttp3.OkHttpClient;
 import pl.jaworskimateusz.machineservice.MachineServiceApplication;
+import pl.jaworskimateusz.machineservice.activity.IssueDetailActivity;
+import pl.jaworskimateusz.machineservice.activity.IssueDetailActivity_MembersInjector;
+import pl.jaworskimateusz.machineservice.activity.IssuesActivity;
+import pl.jaworskimateusz.machineservice.activity.IssuesActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.LoginActivity;
 import pl.jaworskimateusz.machineservice.activity.LoginActivity_MembersInjector;
 import pl.jaworskimateusz.machineservice.activity.MachineDetailActivity;
@@ -77,6 +81,10 @@ public final class DaggerAppComponent implements AppComponent {
   private MembersInjector<MachinesActivity> machinesActivityMembersInjector;
 
   private MembersInjector<MachineDetailActivity> machineDetailActivityMembersInjector;
+
+  private MembersInjector<IssuesActivity> issuesActivityMembersInjector;
+
+  private MembersInjector<IssueDetailActivity> issueDetailActivityMembersInjector;
 
   private DaggerAppComponent(Builder builder) {
     assert builder != null;
@@ -188,6 +196,18 @@ public final class DaggerAppComponent implements AppComponent {
             provideSessionManagerProvider,
             provideAuthenticationServiceApiProvider,
             provideMachineListViewModelFactoryProvider);
+
+    this.issuesActivityMembersInjector =
+        IssuesActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideMachineListViewModelFactoryProvider);
+
+    this.issueDetailActivityMembersInjector =
+        IssueDetailActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideMachineListViewModelFactoryProvider);
   }
 
   @Override
@@ -233,6 +253,16 @@ public final class DaggerAppComponent implements AppComponent {
   @Override
   public void inject(MachineDetailActivity target) {
     machineDetailActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(IssuesActivity target) {
+    issuesActivityMembersInjector.injectMembers(target);
+  }
+
+  @Override
+  public void inject(IssueDetailActivity target) {
+    issueDetailActivityMembersInjector.injectMembers(target);
   }
 
   public static final class Builder {

@@ -11,7 +11,7 @@ class TaskMapper {
 
         }
 
-        fun mapToTask(task: TaskDto): Task {
+        private fun mapToTask(task: TaskDto): Task {
             return Task(
                     task.taskId,
                     task.title,

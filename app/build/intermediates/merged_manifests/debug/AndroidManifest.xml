@@ -69,6 +69,14 @@
             android:label="@string/machine_detail"
             android:theme="@style/AppTheme.Dark.NoActionBar" />
         <activity
+            android:name="pl.jaworskimateusz.machineservice.activity.IssuesActivity"
+            android:label="@string/issues"
+            android:theme="@style/AppTheme.Dark.NoActionBar" />
+        <activity
+            android:name="pl.jaworskimateusz.machineservice.activity.IssueDetailActivity"
+            android:label="@string/issue_detail"
+            android:theme="@style/AppTheme.Dark.NoActionBar" />
+        <activity
             android:name="pl.jaworskimateusz.machineservice.activity.QrScannerActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity

@@ -19,6 +19,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.data.repository.MachineRepository
 
@@ -26,22 +27,43 @@ class MachineViewModel internal constructor(
         val machineRepository: MachineRepository
 ) : ViewModel() {
 
-    private val mutableLiveData = MutableLiveData<SearchingParams>()
+    private val machinesMutableLiveData = MutableLiveData<MachinesSearchingParams>()
+    private val issueMutableLiveData = MutableLiveData<IssuesSearchingParams>()
 
     private val machineList: LiveData<List<Machine>> = Transformations.switchMap(
-            mutableLiveData,
+            machinesMutableLiveData,
             ::getMachinesByName
     )
 
-    private fun getMachinesByName(params: SearchingParams) = machineRepository.getMachinesByNameLiveData(
+    private val issueList: LiveData<List<Issue>> = Transformations.switchMap(
+            issueMutableLiveData,
+            ::getIssuesByKeywords
+    )
+
+    private fun getMachinesByName(params: MachinesSearchingParams) = machineRepository.getMachinesByNameLiveData(
             params.name
     )
 
+    private fun getIssuesByKeywords(params: IssuesSearchingParams) = machineRepository.getIssuesByKeywordsLiveData(
+            params.keywords,
+            params.machineId
+    )
+
     fun getMachinesByName(name: String) = apply {
-        mutableLiveData.value = SearchingParams(name)
+        machinesMutableLiveData.value = MachinesSearchingParams(name)
     }
+
+    fun getIssuesByKeywords(keywords: String, machineId: Long) = apply {
+        issueMutableLiveData.value = IssuesSearchingParams(keywords, machineId)
+    }
+
 
     fun getMachines() = machineList
 
-    data class SearchingParams(val name: String)
+    fun getIssues() = issueList
+
+    data class MachinesSearchingParams(val name: String)
+
+    data class IssuesSearchingParams(val keywords: String, val machineId: Long)
+
 }

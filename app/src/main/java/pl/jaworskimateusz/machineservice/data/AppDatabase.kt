@@ -23,13 +23,14 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import pl.jaworskimateusz.machineservice.data.dao.MachineDao
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao
+import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.data.entity.User
 import pl.jaworskimateusz.machineservice.utilities.Converters
 
 @Database(
-    entities = [User::class, Task::class, Machine::class],
+    entities = [User::class, Task::class, Machine::class, Issue::class],
     version = 1,
     exportSchema = false
 )

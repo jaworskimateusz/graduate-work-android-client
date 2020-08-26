@@ -156,6 +156,7 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr circleCrop
+attr clearOnDoubleClick
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -433,6 +434,9 @@ attr passwordToggleDrawable
 attr passwordToggleEnabled
 attr passwordToggleTint
 attr passwordToggleTintMode
+attr penColor
+attr penMaxWidth
+attr penMinWidth
 attr popEnterAnim
 attr popExitAnim
 attr popUpTo
@@ -595,6 +599,7 @@ attr ttcIndex
 attr uri
 attr useCompatPadding
 attr useDefaultMargins
+attr velocityFilterWeight
 attr viewInflaterClass
 attr voiceIcon
 attr windowActionBar
@@ -1123,8 +1128,10 @@ drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_download
+drawable ic_drawer_home
 drawable ic_empty_image
 drawable ic_image
+drawable ic_issue
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
@@ -1231,6 +1238,7 @@ id bottom
 id btn_download_instruction
 id btn_login
 id btn_make_service
+id btn_save_issue
 id btn_view_issues
 id buttonPanel
 id button_send_report
@@ -1274,13 +1282,16 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_date_from
 id et_date_to
+id et_description
 id et_keywords
 id et_machine_name
 id et_password
 id et_problem_description
+id et_solution
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_add_issue
 id fab_find_by_qr_code
 id fab_save
 id fill
@@ -1307,7 +1318,9 @@ id image
 id info
 id invisible
 id issues
+id issues_list
 id italic
+id item_issue
 id item_machine
 id item_touch_helper_previous_elevation
 id iw_image
@@ -1393,6 +1406,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signature_pad
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1448,6 +1462,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id tw_code
 id tw_date
+id tw_keywords
 id tw_machine_description
 id tw_name
 id tw_solved_status
@@ -1528,6 +1543,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_issue_detail
+layout activity_issues
 layout activity_login
 layout activity_machine_detail
 layout activity_machines
@@ -1551,6 +1568,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout item_issue
 layout item_machine
 layout item_task
 layout mtrl_layout_snackbar
@@ -1630,6 +1648,7 @@ string btn_send_problem
 string cannot_be_empty
 string character_counter_content_description
 string character_counter_pattern
+string clear
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -1654,13 +1673,16 @@ string date_from
 string date_to
 string department_name
 string description
+string description_hint
 string download_instruction
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string full_name
 string hide_bottom_view_on_scroll_behavior
 string hint_app_problem_description
+string issue_detail
 string issues
+string keywords
 string keywords_hint
 string loading
 string login_failed
@@ -1688,8 +1710,12 @@ string qr_code
 string remember_me_hint
 string report_problem
 string report_problem_description
+string save_issue
+string search_by_keywords
 string search_by_name
 string search_menu_title
+string signature
+string solution
 string solved
 string solved_status
 string status_bar_notification_info_overflow
@@ -2291,6 +2317,7 @@ styleable ScrollBar sb_handlerColor sb_horizontal sb_indicatorColor sb_indicator
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable SignInButton buttonSize colorScheme scopeUris
+styleable SignaturePad clearOnDoubleClick penColor penMaxWidth penMinWidth velocityFilterWeight
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
