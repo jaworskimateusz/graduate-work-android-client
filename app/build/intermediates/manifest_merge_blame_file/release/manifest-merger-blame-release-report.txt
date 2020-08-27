@@ -1,0 +1,428 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="pl.jaworskimateusz.machineservice"
+4    android:versionCode="1"
+5    android:versionName="v1.01" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+8-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:5-65
+12-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:6:22-62
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:5-81
+14-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:9:5-80
+15-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:9:22-77
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:5-79
+16-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:7:22-76
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:23:5-68
+17-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:23:22-65
+18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+18-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:25:5-81
+18-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:25:22-78
+19    <uses-feature
+19-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:24:5-26:36
+20        android:name="android.hardware.camera"
+20-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:25:9-47
+21        android:required="false" />
+21-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:26:9-33
+22    <uses-feature
+22-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:27:5-29:36
+23        android:name="android.hardware.camera.front"
+23-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:28:9-53
+24        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+24-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:29:9-33
+25    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+26    <uses-feature
+26-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:32:5-34:36
+27        android:name="android.hardware.camera.autofocus"
+27-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:33:9-57
+28        android:required="false" />
+28-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:34:9-33
+29    <uses-feature
+29-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:35:5-37:36
+30        android:name="android.hardware.camera.flash"
+30-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:36:9-53
+31        android:required="false" />
+31-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:37:9-33
+32    <uses-feature
+32-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:38:5-40:36
+33        android:name="android.hardware.screen.landscape"
+33-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:39:9-57
+34        android:required="false" />
+34-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:40:9-33
+35    <uses-feature
+35-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:41:5-43:36
+36        android:name="android.hardware.wifi"
+36-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:42:9-45
+37        android:required="false" />
+37-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:43:9-33
+38
+39    <application
+39-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:12:5-83:19
+40        android:name="pl.jaworskimateusz.machineservice.MachineServiceApplication"
+40-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:13:9-50
+41        android:allowBackup="true"
+41-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:14:9-35
+42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+42-->[androidx.core:core:1.1.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/ddc4d5d5d8ba7442d59e0399238a2056/core-1.1.0/AndroidManifest.xml:24:18-86
+43        android:configChanges="locale"
+43-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:15:9-39
+44        android:icon="@mipmap/ic_launcher"
+44-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:16:9-43
+45        android:label="@string/app_name"
+45-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:17:9-41
+46        android:roundIcon="@mipmap/ic_launcher_round"
+46-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:18:9-54
+47        android:testOnly="true"
+48        android:theme="@style/AppTheme.Dark"
+48-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:19:9-45
+49        android:usesCleartextTraffic="true" >
+49-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:20:9-44
+50        <activity
+50-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:21:9-24:64
+51            android:name="pl.jaworskimateusz.machineservice.activity.ReportProblemActivity"
+51-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:22:13-59
+52            android:label="@string/title_activity_report_problem"
+52-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:23:13-66
+53            android:theme="@style/AppTheme.Dark.NoActionBar" />
+53-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:24:13-61
+54        <activity
+54-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:25:9-28:63
+55            android:name="pl.jaworskimateusz.machineservice.activity.TasksActivity"
+55-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:26:13-51
+56            android:label="@string/tasks"
+56-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:27:13-42
+57            android:theme="@style/AppTheme.Dark.NoActionBar" />
+57-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:28:13-61
+58        <activity
+58-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:29:9-32:63
+59            android:name="pl.jaworskimateusz.machineservice.activity.TaskDetailActivity"
+59-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:30:13-56
+60            android:label="@string/task_detail"
+60-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:31:13-48
+61            android:theme="@style/AppTheme.Dark.NoActionBar" />
+61-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:32:13-61
+62        <activity
+62-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:33:9-36:63
+63            android:name="pl.jaworskimateusz.machineservice.activity.MachinesActivity"
+63-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:34:13-54
+64            android:label="@string/machines"
+64-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:35:13-45
+65            android:theme="@style/AppTheme.Dark.NoActionBar" />
+65-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:36:13-61
+66        <activity
+66-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:38:9-41:63
+67            android:name="pl.jaworskimateusz.machineservice.activity.MachineDetailActivity"
+67-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:39:13-59
+68            android:label="@string/machine_detail"
+68-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:40:13-51
+69            android:theme="@style/AppTheme.Dark.NoActionBar" />
+69-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:41:13-61
+70        <activity
+70-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:43:9-46:63
+71            android:name="pl.jaworskimateusz.machineservice.activity.IssuesActivity"
+71-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:44:13-52
+72            android:label="@string/issues"
+72-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:45:13-43
+73            android:theme="@style/AppTheme.Dark.NoActionBar" />
+73-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:46:13-61
+74        <activity
+74-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:48:9-51:63
+75            android:name="pl.jaworskimateusz.machineservice.activity.IssueDetailActivity"
+75-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:49:13-57
+76            android:label="@string/issue_detail"
+76-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:50:13-49
+77            android:theme="@style/AppTheme.Dark.NoActionBar" />
+77-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:51:13-61
+78        <activity
+78-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:53:9-56:63
+79            android:name="pl.jaworskimateusz.machineservice.activity.MachineServiceDetailActivity"
+79-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:54:13-66
+80            android:label="@string/machine_service"
+80-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:55:13-52
+81            android:theme="@style/AppTheme.Dark.NoActionBar" />
+81-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:56:13-61
+82        <activity
+82-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:58:9-60:51
+83            android:name="pl.jaworskimateusz.machineservice.activity.QrScannerActivity"
+83-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:59:13-55
+84            android:theme="@style/AppTheme.Dark" />
+84-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:60:13-49
+85        <activity
+85-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:62:9-64:51
+86            android:name="pl.jaworskimateusz.machineservice.activity.PdfViewActivity"
+86-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:63:13-53
+87            android:theme="@style/AppTheme.Dark" />
+87-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:64:13-49
+88        <activity
+88-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:66:9-68:52
+89            android:name="pl.jaworskimateusz.machineservice.activity.LoginActivity"
+89-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:67:13-51
+90            android:theme="@style/AppTheme.Dark" />
+90-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:68:13-49
+91        <activity
+91-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:69:9-71:52
+92            android:name="pl.jaworskimateusz.machineservice.activity.base.BaseActivity"
+92-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:70:13-55
+93            android:theme="@style/AppTheme.Dark" />
+93-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:71:13-49
+94        <activity
+94-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:72:9-82:20
+95            android:name="pl.jaworskimateusz.machineservice.activity.MainActivity"
+95-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:73:13-50
+96            android:configChanges="locale"
+96-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:74:13-43
+97            android:label="@string/app_name"
+97-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:75:13-45
+98            android:theme="@style/AppTheme.Dark" >
+98-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:76:13-49
+99            <intent-filter>
+99-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:77:13-81:29
+100                <action android:name="android.intent.action.MAIN" />
+100-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:78:17-69
+100-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:78:25-66
+101
+102                <category android:name="android.intent.category.LAUNCHER" />
+102-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:80:17-77
+102-->/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/AndroidManifest.xml:80:27-74
+103            </intent-filter>
+104        </activity>
+105
+106        <provider
+106-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:28:9-34:35
+107            android:name="androidx.work.impl.WorkManagerInitializer"
+107-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:29:13-69
+108            android:authorities="pl.jaworskimateusz.machineservice.workmanager-init"
+108-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:30:13-68
+109            android:directBootAware="false"
+109-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:31:13-44
+110            android:exported="false"
+110-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:32:13-37
+111            android:multiprocess="true" />
+111-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:33:13-40
+112
+113        <service
+113-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:36:9-41:35
+114            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+114-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:37:13-88
+115            android:directBootAware="false"
+115-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:38:13-44
+116            android:enabled="@bool/enable_system_alarm_service_default"
+116-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:39:13-72
+117            android:exported="false" />
+117-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:40:13-37
+118        <service
+118-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:42:9-48:35
+119            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+119-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:43:13-84
+120            android:directBootAware="false"
+120-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:44:13-44
+121            android:enabled="@bool/enable_system_job_service_default"
+121-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:45:13-70
+122            android:exported="true"
+122-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:46:13-36
+123            android:permission="android.permission.BIND_JOB_SERVICE" />
+123-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:47:13-69
+124
+125        <receiver
+125-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:50:9-55:35
+126            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+126-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:51:13-88
+127            android:directBootAware="false"
+127-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:52:13-44
+128            android:enabled="true"
+128-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:53:13-35
+129            android:exported="false" />
+129-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:54:13-37
+130        <receiver
+130-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:56:9-66:20
+131            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+131-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:57:13-106
+132            android:directBootAware="false"
+132-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:58:13-44
+133            android:enabled="false"
+133-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:59:13-36
+134            android:exported="false" >
+134-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:60:13-37
+135            <intent-filter>
+135-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:62:13-65:29
+136                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+136-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:63:17-87
+136-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:63:25-84
+137                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+137-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:64:17-90
+137-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:64:25-87
+138            </intent-filter>
+139        </receiver>
+140        <receiver
+140-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:67:9-77:20
+141            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+141-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:68:13-104
+142            android:directBootAware="false"
+142-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:69:13-44
+143            android:enabled="false"
+143-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:70:13-36
+144            android:exported="false" >
+144-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:71:13-37
+145            <intent-filter>
+145-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:73:13-76:29
+146                <action android:name="android.intent.action.BATTERY_OKAY" />
+146-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:74:17-77
+146-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:74:25-74
+147                <action android:name="android.intent.action.BATTERY_LOW" />
+147-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:75:17-76
+147-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:75:25-73
+148            </intent-filter>
+149        </receiver>
+150        <receiver
+150-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:78:9-88:20
+151            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+151-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:79:13-104
+152            android:directBootAware="false"
+152-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:80:13-44
+153            android:enabled="false"
+153-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:81:13-36
+154            android:exported="false" >
+154-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:82:13-37
+155            <intent-filter>
+155-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:84:13-87:29
+156                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+156-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:85:17-83
+156-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:85:25-80
+157                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+157-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:86:17-82
+157-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:86:25-79
+158            </intent-filter>
+159        </receiver>
+160        <receiver
+160-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:89:9-98:20
+161            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+161-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:90:13-103
+162            android:directBootAware="false"
+162-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:91:13-44
+163            android:enabled="false"
+163-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:92:13-36
+164            android:exported="false" >
+164-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:93:13-37
+165            <intent-filter>
+165-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:95:13-97:29
+166                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+166-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:96:17-79
+166-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:96:25-76
+167            </intent-filter>
+168        </receiver>
+169        <receiver
+169-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:99:9-110:20
+170            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+170-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:100:13-88
+171            android:directBootAware="false"
+171-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:101:13-44
+172            android:enabled="false"
+172-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:102:13-36
+173            android:exported="false" >
+173-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:103:13-37
+174            <intent-filter>
+174-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:105:13-109:29
+175                <action android:name="android.intent.action.BOOT_COMPLETED" />
+175-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:106:17-79
+175-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:106:25-76
+176                <action android:name="android.intent.action.TIME_SET" />
+176-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:107:17-73
+176-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:107:25-70
+177                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+177-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:108:17-81
+177-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:108:25-78
+178            </intent-filter>
+179        </receiver>
+180        <receiver
+180-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:111:9-120:20
+181            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+181-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:112:13-99
+182            android:directBootAware="false"
+182-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:113:13-44
+183            android:enabled="@bool/enable_system_alarm_service_default"
+183-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:114:13-72
+184            android:exported="false" >
+184-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:115:13-37
+185            <intent-filter>
+185-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:117:13-119:29
+186                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+186-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:118:17-98
+186-->[androidx.work:work-runtime:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/cee34f3e941dd7937c6aa9093dba50fe/work-runtime-2.0.0/AndroidManifest.xml:118:25-95
+187            </intent-filter>
+188        </receiver>
+189
+190        <service
+190-->[androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:23:9-25:40
+191            android:name="androidx.room.MultiInstanceInvalidationService"
+191-->[androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:24:13-74
+192            android:exported="false" />
+192-->[androidx.room:room-runtime:2.1.0-alpha04] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/985d7b710ba766c46859e3941d407247/room-runtime-2.1.0-alpha04/AndroidManifest.xml:25:13-37
+193
+194        <provider
+194-->[com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+195            android:name="com.squareup.picasso.PicassoProvider"
+195-->[com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+196            android:authorities="pl.jaworskimateusz.machineservice.com.squareup.picasso"
+196-->[com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+197            android:exported="false" />
+197-->[com.squareup.picasso:picasso:2.71828] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/2210e8a8ea2820d611e5dc1023392c5f/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+198
+199        <activity
+199-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:46:9-52:63
+200            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+200-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:47:13-74
+201            android:clearTaskOnLaunch="true"
+201-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:48:13-45
+202            android:screenOrientation="sensorLandscape"
+202-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:49:13-56
+203            android:stateNotNeeded="true"
+203-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:50:13-42
+204            android:theme="@style/zxing_CaptureTheme"
+204-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:51:13-54
+205            android:windowSoftInputMode="stateAlwaysHidden" />
+205-->[com.journeyapps:zxing-android-embedded:3.4.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/b78260d911dbfae31dfc490fe3b04897/jetified-zxing-android-embedded-3.4.0/AndroidManifest.xml:52:13-60
+206        <activity
+206-->[com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+207            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+207-->[com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+208            android:exported="false"
+208-->[com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+209            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+209-->[com.google.android.gms:play-services-base:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/4fea0fb9b6e05a0a2fd6fe7dbce58e3a/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+210
+211        <meta-data
+211-->[com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
+212            android:name="com.google.android.gms.version"
+212-->[com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
+213            android:value="@integer/google_play_services_version" />
+213-->[com.google.android.gms:play-services-basement:16.0.1] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/d42286f95146f995e66708949f1f9bea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
+214
+215        <provider
+215-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/346327eda9169b1033548d8ef87a095e/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+216            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+216-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/346327eda9169b1033548d8ef87a095e/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+217            android:authorities="pl.jaworskimateusz.machineservice.lifecycle-process"
+217-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/346327eda9169b1033548d8ef87a095e/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+218            android:exported="false"
+218-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/346327eda9169b1033548d8ef87a095e/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+219            android:multiprocess="true" />
+219-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/346327eda9169b1033548d8ef87a095e/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+220    </application>
+221
+222</manifest>

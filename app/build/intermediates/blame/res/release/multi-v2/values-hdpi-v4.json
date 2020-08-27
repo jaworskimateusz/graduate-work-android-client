@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/bb1e3652e91827ed4d3429a8388a62c6/jetified-core-1.9/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,55",
+                        "endOffsets": "108,164"
+                    }
+                },
+                {
+                    "source": "/Users/mateuszjaworski/.gradle/caches/transforms-2/files-2.1/7cc7a6f65337275695abc5f59f847083/appcompat-1.0.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "169",
+                        "endLines": "8",
+                        "endColumns": "13",
+                        "endOffsets": "441"
+                    }
+                }
+            ]
+        }
+    ]
+}

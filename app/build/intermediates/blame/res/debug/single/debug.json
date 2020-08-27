@@ -28,6 +28,10 @@
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/activity_task_detail.xml"
     },
     {
+        "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/layout_activity_service_detail.xml.flat",
+        "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/layout/activity_service_detail.xml"
+    },
+    {
         "merged": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },

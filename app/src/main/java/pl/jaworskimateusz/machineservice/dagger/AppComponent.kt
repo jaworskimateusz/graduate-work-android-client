@@ -22,5 +22,6 @@ interface AppComponent{
     fun inject(target: MachineDetailActivity)
     fun inject(target: IssuesActivity)
     fun inject(target: IssueDetailActivity)
+    fun inject(target: MachineServiceDetailActivity)
 
 }

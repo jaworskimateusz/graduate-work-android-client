@@ -3,6 +3,7 @@ package pl.jaworskimateusz.machineservice.services
 import okhttp3.ResponseBody
 import pl.jaworskimateusz.machineservice.dto.IssueDto
 import pl.jaworskimateusz.machineservice.dto.MachineDto
+import pl.jaworskimateusz.machineservice.dto.ServiceDto
 import pl.jaworskimateusz.machineservice.dto.TaskDto
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import retrofit2.Call
@@ -49,6 +50,14 @@ interface MachineService {
                    @Body issue: IssueDto
     ): Call<IssueDto>
 
+    @Headers("Content-Type: application/vnd.api+json")
+    @Streaming
+    @PUT("/machines/{machineId}/services")
+    fun saveService(@Header("Authorization") auth: String,
+                          @Path("machineId") machineId: Long,
+                          @Body service: ServiceDto
+    ): Call<ServiceDto>
+
 }
 
 class MachineServiceAPI(retrofit: Retrofit, private var sessionManager: SessionManager) {
@@ -78,6 +87,10 @@ class MachineServiceAPI(retrofit: Retrofit, private var sessionManager: SessionM
 
     fun saveOrUpdateIssue(machineId: Long, issueDto: IssueDto): Call<IssueDto> {
         return machineService.saveOrUpdateIssue(sessionManager.token, machineId, issueDto)
+    }
+
+    fun saveService(machineId: Long, serviceDto: ServiceDto): Call<ServiceDto> {
+        return machineService.saveService(sessionManager.token, machineId, serviceDto)
     }
 
 }

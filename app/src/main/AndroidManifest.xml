@@ -51,6 +51,11 @@
             android:theme="@style/AppTheme.Dark.NoActionBar"/>
 
         <activity
+            android:name=".activity.MachineServiceDetailActivity"
+            android:label="@string/machine_service"
+            android:theme="@style/AppTheme.Dark.NoActionBar"/>
+
+        <activity
             android:name=".activity.QrScannerActivity"
             android:theme="@style/AppTheme.Dark"/>
 

@@ -1,0 +1,7 @@
+#Thu Aug 27 12:12:54 CEST 2020
+base.0=/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Applications/Documents/Studies/inz/application/graduate-work-android-client/app/build/intermediates/dex/release/mergeDexRelease/classes2.dex

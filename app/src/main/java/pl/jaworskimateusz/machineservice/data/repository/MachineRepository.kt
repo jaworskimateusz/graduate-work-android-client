@@ -10,10 +10,13 @@ import androidx.lifecycle.MutableLiveData
 import pl.jaworskimateusz.machineservice.data.dao.MachineDao
 import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
+import pl.jaworskimateusz.machineservice.data.entity.Service
 import pl.jaworskimateusz.machineservice.dto.IssueDto
 import pl.jaworskimateusz.machineservice.dto.MachineDto
+import pl.jaworskimateusz.machineservice.dto.ServiceDto
 import pl.jaworskimateusz.machineservice.mappers.IssueMapper
 import pl.jaworskimateusz.machineservice.mappers.MachineMapper
+import pl.jaworskimateusz.machineservice.mappers.ServiceMapper
 import pl.jaworskimateusz.machineservice.services.MachineServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.ApiErrorHandler
@@ -112,7 +115,7 @@ class MachineRepository constructor(
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class SaveOrUpdateIssue(val machineId: Long, val issue: Issue) : AsyncTask<Void, Void, IssueDto>() {
+    inner class SaveOrUpdateIssue(val machineId: Long, private val issue: Issue) : AsyncTask<Void, Void, IssueDto>() {
         override fun doInBackground(vararg params: Void?): IssueDto? {
             val response =
                     machineServiceAPI.saveOrUpdateIssue(machineId, IssueMapper.mapToIssueDto(issue)).execute()
@@ -124,6 +127,22 @@ class MachineRepository constructor(
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                 Log.e(TaskRepository.TAG, errorResponse?.error)
 //                errorResponse?.error?.let { makeToast(it) }
+            }
+            return null
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class SaveService(val machineId: Long, private val service: Service) : AsyncTask<Void, Void, ServiceDto>() {
+        override fun doInBackground(vararg params: Void?): ServiceDto? {
+            val response =
+                    machineServiceAPI.saveService(machineId, ServiceMapper.mapToServiceDto(service)).execute()
+            if (response.isSuccessful) {
+                machineDao.insertService(ServiceMapper.mapToService(response.body()!!))
+                Log.d(TAG,"Service saved")
+            } else {
+                val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Log.e(TaskRepository.TAG, errorResponse?.error)
             }
             return null
         }

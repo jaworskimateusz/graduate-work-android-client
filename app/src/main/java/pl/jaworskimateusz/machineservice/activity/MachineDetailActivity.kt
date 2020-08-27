@@ -168,7 +168,13 @@ class MachineDetailActivity : BaseActivity() {
         }
     }
 
-    fun makeMachineService(view: View) {}
+    fun makeMachineService(view: View) {
+        if (machine != null) {
+            val intent = Intent(this, MachineServiceDetailActivity::class.java)
+            intent.putExtra("machineId", machine!!.machineId)
+            startActivity(intent)
+        }
+    }
 
     private fun showDialog() {
         progressDialog = ProgressDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog)

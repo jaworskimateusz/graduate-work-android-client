@@ -11,8 +11,10 @@
     <string name="qr_code">QR code scanner</string>
     <string name="issues">Issues</string>
     <string name="issue_detail">Issue detail</string>
+    <string name="machine_service">Machine service</string>
     <string name="signature">Signature:</string>
     <string name="keywords">Keywords</string>
+    <string name="component_name">Component name</string>
     <string name="clear">Clear</string>
     <string name="task_detail">Task detail</string>
     <string name="date_from">date from</string>
@@ -22,6 +24,7 @@
     <string name="description">Description:</string>
     <string name="description_hint">Description</string>
     <string name="solved">solved:</string>
+    <string name="service_success">Check if service passed successfully</string>
     <string name="solution">Solution</string>
     <string name="solved_status">SOLVED</string>
     <string name="not_found">Machine not found</string>
@@ -30,6 +33,7 @@
     <string name="download_instruction">Download instruction:</string>
     <string name="make_service">Make service</string>
     <string name="save_issue">Save issue</string>
+    <string name="save_service">Save service</string>
     <string name="task_solved">This task was solved</string>
     <string name="report_problem_description">If you see any issues with app please report it</string>
     <string name="hint_app_problem_description">Please enter description</string>

@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
+import pl.jaworskimateusz.machineservice.data.entity.Service
 
 @Dao
 interface MachineDao {
@@ -46,5 +47,8 @@ interface MachineDao {
 
     @Query("SELECT * FROM issues WHERE issueId=:issueId")
     fun getIssueById(issueId: Long): Issue
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertService(item: Service)
 
 }

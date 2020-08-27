@@ -85,21 +85,16 @@ class IssueDetailActivity : BaseActivity() {
     }
 
     fun saveIssue(view: View) {
-        if (issue == null) {
-            issue = Issue(
-                    null,
-                    etKeywords.text.toString(),
-                    etDescription.text.toString(),
-                    etSolution.text.toString(),
-                    FileUtils.bitmapToString(signaturePad.signatureBitmap),
-                    machineId
-            )
-        } else {
-            issue!!.keywords = etKeywords.text.toString()
-            issue!!.description = etDescription.text.toString()
-            issue!!.solution = etSolution.text.toString()
-            issue!!.workerSignature = FileUtils.bitmapToString(signaturePad.signatureBitmap)
-        }
+        issue = Issue(
+                null,
+                etKeywords.text.toString(),
+                etDescription.text.toString(),
+                etSolution.text.toString(),
+                FileUtils.bitmapToString(signaturePad.signatureBitmap),
+                machineId
+        )
+        if (issueId != 0L)
+            issue!!.issueId = issueId
         machineViewModel.machineRepository.SaveOrUpdateIssue(machineId, issue!!).execute()
         finish()
     }
