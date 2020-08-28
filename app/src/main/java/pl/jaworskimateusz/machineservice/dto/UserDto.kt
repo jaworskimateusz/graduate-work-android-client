@@ -13,5 +13,5 @@ data class UserDto(
     val phoneNumber: Int,
     val role: String,
     val enabled: Int,
-    val departmentId: Long
+    val department: String
 )
