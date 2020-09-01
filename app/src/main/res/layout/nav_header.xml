@@ -39,14 +39,15 @@
             android:padding="5dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/primary_darker" />
-<!--        <TextView-->
-<!--            android:id="@+id/nav_header_department"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/department_name"-->
-<!--            android:padding="5dp"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
-<!--            android:textColor="@color/primary_darker" />-->
+
+        <TextView
+            android:id="@+id/nav_header_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/department_name"
+            android:padding="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/primary_darker" />
 
     </LinearLayout>
 

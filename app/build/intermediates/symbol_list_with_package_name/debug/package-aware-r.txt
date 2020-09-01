@@ -1312,7 +1312,6 @@ id groups
 id home
 id homeAsUp
 id horizontal
-id ib_task_details
 id icon
 id icon_group
 id icon_only
@@ -1349,6 +1348,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id nav_controller_view_tag
+id nav_header_department
 id nav_header_login
 id nav_header_name
 id nav_issues

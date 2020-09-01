@@ -41,10 +41,10 @@ public final class AppDatabase_Impl extends AppDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `serviceInstruction` TEXT NOT NULL, PRIMARY KEY(`machineId`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `issues` (`issueId` INTEGER, `keywords` TEXT NOT NULL, `description` TEXT NOT NULL, `solution` TEXT, `workerSignature` TEXT NOT NULL, `machineId` INTEGER NOT NULL, PRIMARY KEY(`issueId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `issues` (`issueId` INTEGER, `keywords` TEXT NOT NULL, `description` TEXT NOT NULL, `solution` TEXT, `workerSignature` TEXT, `machineId` INTEGER NOT NULL, PRIMARY KEY(`issueId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `services` (`serviceId` INTEGER, `date` INTEGER NOT NULL, `componentName` TEXT NOT NULL, `description` TEXT NOT NULL, `result` INTEGER NOT NULL, `machineId` INTEGER NOT NULL, PRIMARY KEY(`serviceId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8d1c6a2c6b3477a82c7850df4c18f138\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"bbad01b8b3f78811d4d4beafb087075c\")");
       }
 
       @Override
@@ -135,7 +135,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsIssues.put("keywords", new TableInfo.Column("keywords", "TEXT", true, 0));
         _columnsIssues.put("description", new TableInfo.Column("description", "TEXT", true, 0));
         _columnsIssues.put("solution", new TableInfo.Column("solution", "TEXT", false, 0));
-        _columnsIssues.put("workerSignature", new TableInfo.Column("workerSignature", "TEXT", true, 0));
+        _columnsIssues.put("workerSignature", new TableInfo.Column("workerSignature", "TEXT", false, 0));
         _columnsIssues.put("machineId", new TableInfo.Column("machineId", "INTEGER", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysIssues = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesIssues = new HashSet<TableInfo.Index>(0);
@@ -163,7 +163,7 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Found:\n" + _existingServices);
         }
       }
-    }, "8d1c6a2c6b3477a82c7850df4c18f138", "b44b4654f797bba611f1729ca84413ce");
+    }, "bbad01b8b3f78811d4d4beafb087075c", "726c5b24f0f9c311906dee1534968f13");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -10,6 +10,6 @@ data class Issue(
         var keywords: String,
         var description: String,
         var solution: String?,
-        var workerSignature: String,
+        var workerSignature: String?,
         val machineId: Long
 )

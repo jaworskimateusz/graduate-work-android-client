@@ -5,6 +5,6 @@ data class IssueDto(
     val keywords: String,
     val description: String,
     val solution: String?,
-    val workerSignature: String,
+    val workerSignature: String?,
     val machineId: Long
 )

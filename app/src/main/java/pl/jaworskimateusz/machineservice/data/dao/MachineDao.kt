@@ -16,7 +16,7 @@ interface MachineDao {
     fun getAllMachinesLiveData(): LiveData<List<Machine>>
 
     @Query("SELECT * FROM machines WHERE name LIKE '%' || :name || '%' ORDER BY name")
-    fun getMachinesByNameLiveData(name: String): LiveData<List<Machine>>
+    fun getMachinesByNameLiveData(name: String): LiveData<List<Machine>> //TODO consider many to many relation
 
     @Query("SELECT * FROM machines ORDER BY name")
     fun getAllMachines(): List<Machine>

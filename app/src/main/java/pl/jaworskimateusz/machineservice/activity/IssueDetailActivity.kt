@@ -75,7 +75,7 @@ class IssueDetailActivity : BaseActivity() {
             etKeywords.setText(issue!!.keywords)
             etDescription.setText(issue!!.description)
             etSolution.setText(issue!!.solution)
-            val signature = FileUtils.stringToBitmap(issue!!.workerSignature)
+            val signature = issue!!.workerSignature?.let { FileUtils.stringToBitmap(it) }
             if (signature != null)
                 signaturePad.signatureBitmap = signature
         } else {

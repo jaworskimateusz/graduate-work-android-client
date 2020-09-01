@@ -35,10 +35,10 @@ class UserServiceAPI(retrofit: Retrofit, private var sessionManager: SessionMana
 
     private var userService: UserService  = retrofit.create(UserService::class.java)
 
-    fun reportApplicationProblem(keywords: String, description: String): Call<ApplicationProblemDto> {
+    fun reportApplicationProblem(keywords: String, description: String, versionCode: String): Call<ApplicationProblemDto> {
         return userService.reportApplicationProblem(
                 sessionManager.token,
-                ApplicationProblemDto(sessionManager.userId, description, keywords)
+                ApplicationProblemDto(sessionManager.userId, description, keywords, versionCode)
         )
     }
 

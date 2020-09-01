@@ -19,8 +19,8 @@ import javax.inject.Inject
 
 class ReportProblemActivity : BaseActivity() {
 
-    var etProblemDescription:TextView? = null
-    var etKeywords:TextView? = null
+    private var etProblemDescription:TextView? = null
+    private var etKeywords:TextView? = null
 
     @Inject
     lateinit var userServiceAPI: UserServiceAPI
@@ -42,7 +42,8 @@ class ReportProblemActivity : BaseActivity() {
             Toast.makeText(applicationContext,getString(R.string.cannot_be_empty), Toast.LENGTH_SHORT).show()
         } else {
             if (NetworkManager.isNetworkAvailable(this)) {
-                val problemResponse = userServiceAPI.reportApplicationProblem(keywords.toUpperCase(), description)
+                val problemResponse =
+                        userServiceAPI.reportApplicationProblem(keywords.toUpperCase(), description, getString(R.string.versionName))
                 problemResponse.enqueue(object : Callback<ApplicationProblemDto> {
                     override fun onResponse(call: Call<ApplicationProblemDto>, response: Response<ApplicationProblemDto>) =
                         when {

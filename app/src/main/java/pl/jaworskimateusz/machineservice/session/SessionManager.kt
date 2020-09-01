@@ -19,6 +19,7 @@ class SessionManager(private var context: Context) {
         const val PASSWORD = "Password"
         const val FULL_NAME = "FullName"
         const val USER_ID = "UserId"
+        const val DEPARTMENT = "Department"
     }
 
     init {
@@ -47,6 +48,13 @@ class SessionManager(private var context: Context) {
         get() = sharedPreferences.getBoolean(REMEMBER_ME, false)
         set(value) {
             editor.putBoolean(REMEMBER_ME, value)
+            editor.commit()
+        }
+
+    var department: String
+        get() = sharedPreferences.getString(DEPARTMENT, "")
+        set(value) {
+            editor.putString(DEPARTMENT, value)
             editor.commit()
         }
 

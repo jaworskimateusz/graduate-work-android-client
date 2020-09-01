@@ -1,5 +1,6 @@
 package pl.jaworskimateusz.machineservice.activity.base
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -40,15 +41,18 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun initDrawerLayout() {
         mDrawerLayout = findViewById(R.id.drawer_layout)
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         val navHeader = navigationView.inflateHeaderView(R.layout.nav_header)
         val tvUsername = navHeader.findViewById(R.id.nav_header_login) as TextView
         val tvFullName = navHeader.findViewById(R.id.nav_header_name) as TextView
+        val tvDepartment = navHeader.findViewById(R.id.nav_header_department) as TextView
 
         tvFullName.text = getString(R.string.full_name) + " " +  sessionManager.fullName
         tvUsername.text = getString(R.string.login_user)  + " " + sessionManager.login
+        tvDepartment.text = getString(R.string.department_name)  + " " + sessionManager.department
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true

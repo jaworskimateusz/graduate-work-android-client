@@ -105,6 +105,7 @@ class LoginActivity : AppCompatActivity() {
             user.password,
             token
         )
+        sessionManager.department = user.department
         sessionManager.rememberMe = cbRememberMe.isChecked
     }
 
