@@ -48,15 +48,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/remember_me"
-                android:text="@string/remember_me_hint"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"

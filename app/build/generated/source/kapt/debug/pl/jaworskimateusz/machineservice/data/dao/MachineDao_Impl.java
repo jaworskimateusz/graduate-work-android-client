@@ -20,6 +20,7 @@ import javax.annotation.Generated;
 import pl.jaworskimateusz.machineservice.data.entity.Issue;
 import pl.jaworskimateusz.machineservice.data.entity.Machine;
 import pl.jaworskimateusz.machineservice.data.entity.Service;
+import pl.jaworskimateusz.machineservice.data.entity.UserMachine;
 import pl.jaworskimateusz.machineservice.utilities.Converters;
 
 @Generated("androidx.room.RoomProcessor")
@@ -28,6 +29,8 @@ public final class MachineDao_Impl implements MachineDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter __insertionAdapterOfMachine;
+
+  private final EntityInsertionAdapter __insertionAdapterOfUserMachine;
 
   private final EntityInsertionAdapter __insertionAdapterOfIssue;
 
@@ -71,6 +74,18 @@ public final class MachineDao_Impl implements MachineDao {
         } else {
           stmt.bindString(6, value.getServiceInstruction());
         }
+      }
+    };
+    this.__insertionAdapterOfUserMachine = new EntityInsertionAdapter<UserMachine>(__db) {
+      @Override
+      public String createQuery() {
+        return "INSERT OR REPLACE INTO `users_machines`(`userId`,`machineId`) VALUES (?,?)";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, UserMachine value) {
+        stmt.bindLong(1, value.getUserId());
+        stmt.bindLong(2, value.getMachineId());
       }
     };
     this.__insertionAdapterOfIssue = new EntityInsertionAdapter<Issue>(__db) {
@@ -150,6 +165,17 @@ public final class MachineDao_Impl implements MachineDao {
     __db.beginTransaction();
     try {
       __insertionAdapterOfMachine.insert(machines);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void insertUserMachine(final UserMachine userMachine) {
+    __db.beginTransaction();
+    try {
+      __insertionAdapterOfUserMachine.insert(userMachine);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
@@ -247,16 +273,22 @@ public final class MachineDao_Impl implements MachineDao {
   }
 
   @Override
-  public LiveData<List<Machine>> getMachinesByNameLiveData(final String name) {
-    final String _sql = "SELECT * FROM machines WHERE name LIKE '%' || ? || '%' ORDER BY name";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+  public LiveData<List<Machine>> getMachinesByNameLiveData(final long userId, final String name) {
+    final String _sql = "SELECT m.machineId, m.name, m.code, m.description, m.image, m.serviceInstruction \n"
+            + "            FROM machines AS m \n"
+            + "            JOIN users_machines AS um USING(machineId)  \n"
+            + "            WHERE m.name LIKE '%' || ? || '%' AND um.userId=? \n"
+            + "            ORDER BY m.name";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
     int _argIndex = 1;
     if (name == null) {
       _statement.bindNull(_argIndex);
     } else {
       _statement.bindString(_argIndex, name);
     }
-    return __db.getInvalidationTracker().createLiveData(new String[]{"machines"}, new Callable<List<Machine>>() {
+    _argIndex = 2;
+    _statement.bindLong(_argIndex, userId);
+    return __db.getInvalidationTracker().createLiveData(new String[]{"machines","users_machines"}, new Callable<List<Machine>>() {
       @Override
       public List<Machine> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false);
@@ -296,43 +328,6 @@ public final class MachineDao_Impl implements MachineDao {
         _statement.release();
       }
     });
-  }
-
-  @Override
-  public List<Machine> getAllMachines() {
-    final String _sql = "SELECT * FROM machines ORDER BY name";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    final Cursor _cursor = DBUtil.query(__db, _statement, false);
-    try {
-      final int _cursorIndexOfMachineId = CursorUtil.getColumnIndexOrThrow(_cursor, "machineId");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfCode = CursorUtil.getColumnIndexOrThrow(_cursor, "code");
-      final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
-      final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
-      final int _cursorIndexOfServiceInstruction = CursorUtil.getColumnIndexOrThrow(_cursor, "serviceInstruction");
-      final List<Machine> _result = new ArrayList<Machine>(_cursor.getCount());
-      while(_cursor.moveToNext()) {
-        final Machine _item;
-        final long _tmpMachineId;
-        _tmpMachineId = _cursor.getLong(_cursorIndexOfMachineId);
-        final String _tmpName;
-        _tmpName = _cursor.getString(_cursorIndexOfName);
-        final String _tmpCode;
-        _tmpCode = _cursor.getString(_cursorIndexOfCode);
-        final String _tmpDescription;
-        _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
-        final String _tmpImage;
-        _tmpImage = _cursor.getString(_cursorIndexOfImage);
-        final String _tmpServiceInstruction;
-        _tmpServiceInstruction = _cursor.getString(_cursorIndexOfServiceInstruction);
-        _item = new Machine(_tmpMachineId,_tmpName,_tmpCode,_tmpDescription,_tmpImage,_tmpServiceInstruction);
-        _result.add(_item);
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
   }
 
   @Override

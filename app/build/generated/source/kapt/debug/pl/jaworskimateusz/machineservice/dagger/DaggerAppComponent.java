@@ -60,13 +60,13 @@ public final class DaggerAppComponent implements AppComponent {
 
   private MembersInjector<MainActivity> mainActivityMembersInjector;
 
-  private MembersInjector<LoginActivity> loginActivityMembersInjector;
-
   private Provider<UserServiceAPI> provideUserServiceAPIProvider;
 
-  private MembersInjector<ReportProblemActivity> reportProblemActivityMembersInjector;
-
   private Provider<TaskRepository> provideTaskRepositoryProvider;
+
+  private MembersInjector<LoginActivity> loginActivityMembersInjector;
+
+  private MembersInjector<ReportProblemActivity> reportProblemActivityMembersInjector;
 
   private Provider<TaskViewModelFactory> provideTaskListViewModelFactoryProvider;
 
@@ -132,19 +132,10 @@ public final class DaggerAppComponent implements AppComponent {
         MainActivity_MembersInjector.create(
             provideSessionManagerProvider, provideAuthenticationServiceApiProvider);
 
-    this.loginActivityMembersInjector =
-        LoginActivity_MembersInjector.create(provideAuthenticationServiceApiProvider);
-
     this.provideUserServiceAPIProvider =
         DoubleCheck.provider(
             PresenterModule_ProvideUserServiceAPIFactory.create(
                 builder.presenterModule, provideRetrofitProvider, provideSessionManagerProvider));
-
-    this.reportProblemActivityMembersInjector =
-        ReportProblemActivity_MembersInjector.create(
-            provideSessionManagerProvider,
-            provideAuthenticationServiceApiProvider,
-            provideUserServiceAPIProvider);
 
     this.provideTaskRepositoryProvider =
         DoubleCheck.provider(
@@ -153,6 +144,16 @@ public final class DaggerAppComponent implements AppComponent {
                 provideContextProvider,
                 provideSessionManagerProvider,
                 provideUserServiceAPIProvider));
+
+    this.loginActivityMembersInjector =
+        LoginActivity_MembersInjector.create(
+            provideAuthenticationServiceApiProvider, provideTaskRepositoryProvider);
+
+    this.reportProblemActivityMembersInjector =
+        ReportProblemActivity_MembersInjector.create(
+            provideSessionManagerProvider,
+            provideAuthenticationServiceApiProvider,
+            provideUserServiceAPIProvider);
 
     this.provideTaskListViewModelFactoryProvider =
         DoubleCheck.provider(

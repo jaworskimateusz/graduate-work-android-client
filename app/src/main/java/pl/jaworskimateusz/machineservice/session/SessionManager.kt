@@ -8,13 +8,12 @@ import pl.jaworskimateusz.machineservice.activity.LoginActivity
 
 class SessionManager(private var context: Context) {
 
-    internal var sharedPreferences: SharedPreferences =  context.getSharedPreferences("MACHINE_SERVICE", 0)
-    internal var editor: Editor
+    private var sharedPreferences: SharedPreferences =  context.getSharedPreferences("MACHINE_SERVICE", 0)
+    private var editor: Editor
 
     companion object {
         const val IS_LOGGED_IN = "isLoggedIn"
-        const val TOKEN = "TokenKey"
-        const val REMEMBER_ME = "RememberMe"
+        const val TOKEN = "Token"
         const val USERNAME = "Username"
         const val PASSWORD = "Password"
         const val FULL_NAME = "FullName"
@@ -43,13 +42,6 @@ class SessionManager(private var context: Context) {
 
     val token: String
         get() = sharedPreferences.getString(TOKEN, "")
-
-    var rememberMe: Boolean
-        get() = sharedPreferences.getBoolean(REMEMBER_ME, false)
-        set(value) {
-            editor.putBoolean(REMEMBER_ME, value)
-            editor.commit()
-        }
 
     var department: String
         get() = sharedPreferences.getString(DEPARTMENT, "")

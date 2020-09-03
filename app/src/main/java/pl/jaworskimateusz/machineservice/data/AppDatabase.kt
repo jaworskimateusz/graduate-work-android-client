@@ -27,7 +27,8 @@ import pl.jaworskimateusz.machineservice.data.entity.*
 import pl.jaworskimateusz.machineservice.utilities.Converters
 
 @Database(
-    entities = [User::class, Task::class, Machine::class, Issue::class, Service::class],
+    entities = [User::class, Task::class, Machine::class, Issue::class, Service::class,
+            UserMachine::class, UserTask::class],
     version = 1,
     exportSchema = false
 )

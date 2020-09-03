@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import javax.annotation.Generated;
 import pl.jaworskimateusz.machineservice.data.entity.Task;
+import pl.jaworskimateusz.machineservice.data.entity.User;
+import pl.jaworskimateusz.machineservice.data.entity.UserTask;
 import pl.jaworskimateusz.machineservice.utilities.Converters;
 
 @Generated("androidx.room.RoomProcessor")
@@ -29,6 +31,10 @@ public final class TaskDao_Impl implements TaskDao {
   private final EntityInsertionAdapter __insertionAdapterOfTask;
 
   private final Converters __converters = new Converters();
+
+  private final EntityInsertionAdapter __insertionAdapterOfUserTask;
+
+  private final EntityInsertionAdapter __insertionAdapterOfUser;
 
   public TaskDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -61,6 +67,61 @@ public final class TaskDao_Impl implements TaskDao {
         stmt.bindLong(5, value.getSolved());
       }
     };
+    this.__insertionAdapterOfUserTask = new EntityInsertionAdapter<UserTask>(__db) {
+      @Override
+      public String createQuery() {
+        return "INSERT OR REPLACE INTO `users_tasks`(`userId`,`taskId`) VALUES (?,?)";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, UserTask value) {
+        stmt.bindLong(1, value.getUserId());
+        stmt.bindLong(2, value.getTaskId());
+      }
+    };
+    this.__insertionAdapterOfUser = new EntityInsertionAdapter<User>(__db) {
+      @Override
+      public String createQuery() {
+        return "INSERT OR REPLACE INTO `users`(`userId`,`username`,`firstName`,`lastName`,`password`,`phoneNumber`,`role`,`enabled`,`department`) VALUES (?,?,?,?,?,?,?,?,?)";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, User value) {
+        stmt.bindLong(1, value.getUserId());
+        if (value.getUsername() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getUsername());
+        }
+        if (value.getFirstName() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getFirstName());
+        }
+        if (value.getLastName() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getLastName());
+        }
+        if (value.getPassword() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getPassword());
+        }
+        stmt.bindLong(6, value.getPhoneNumber());
+        if (value.getRole() == null) {
+          stmt.bindNull(7);
+        } else {
+          stmt.bindString(7, value.getRole());
+        }
+        stmt.bindLong(8, value.getEnabled());
+        if (value.getDepartment() == null) {
+          stmt.bindNull(9);
+        } else {
+          stmt.bindString(9, value.getDepartment());
+        }
+      }
+    };
   }
 
   @Override
@@ -75,10 +136,32 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
+  public void insertUserTask(final UserTask userTask) {
+    __db.beginTransaction();
+    try {
+      __insertionAdapterOfUserTask.insert(userTask);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public void insert(final Task item) {
     __db.beginTransaction();
     try {
       __insertionAdapterOfTask.insert(item);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void insert(final User item) {
+    __db.beginTransaction();
+    try {
+      __insertionAdapterOfUser.insert(item);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
@@ -135,10 +218,16 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
-  public LiveData<List<Task>> getAllTasksByDatesLiveData(final Date dateFrom, final Date dateTo,
-      final int solved) {
-    final String _sql = "SELECT * FROM tasks WHERE (date BETWEEN ? AND ?) AND solved=? ORDER BY date";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 3);
+  public LiveData<List<Task>> getAllTasksByDatesLiveData(final long userId, final Date dateFrom,
+      final Date dateTo, final int solved) {
+    final String _sql = "SELECT t.taskId, t.title, t.description, t.date, t.solved \n"
+            + "             FROM tasks AS t \n"
+            + "             JOIN users_tasks AS ut USING (taskId)\n"
+            + "             WHERE (t.date BETWEEN ? AND ?) \n"
+            + "             AND t.solved = ?\n"
+            + "             AND ut.userId = ?\n"
+            + "             ORDER BY t.date";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 4);
     int _argIndex = 1;
     final Long _tmp;
     _tmp = __converters.dateToTimestamp(dateFrom);
@@ -157,7 +246,9 @@ public final class TaskDao_Impl implements TaskDao {
     }
     _argIndex = 3;
     _statement.bindLong(_argIndex, solved);
-    return __db.getInvalidationTracker().createLiveData(new String[]{"tasks"}, new Callable<List<Task>>() {
+    _argIndex = 4;
+    _statement.bindLong(_argIndex, userId);
+    return __db.getInvalidationTracker().createLiveData(new String[]{"tasks","users_tasks"}, new Callable<List<Task>>() {
       @Override
       public List<Task> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false);
@@ -243,9 +334,11 @@ public final class TaskDao_Impl implements TaskDao {
   }
 
   @Override
-  public Date getMaxTaskDate() {
-    final String _sql = "SELECT MAX(date) FROM tasks";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+  public Date getMaxTaskDate(final long userId) {
+    final String _sql = "SELECT MAX(date) FROM tasks JOIN users_tasks AS ut USING (taskId) WHERE ut.userId = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, userId);
     final Cursor _cursor = DBUtil.query(__db, _statement, false);
     try {
       final Date _result;

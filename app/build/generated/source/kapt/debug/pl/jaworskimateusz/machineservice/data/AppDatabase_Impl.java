@@ -38,13 +38,15 @@ public final class AppDatabase_Impl extends AppDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`user_id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`user_id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`userId` INTEGER NOT NULL, `username` TEXT NOT NULL, `firstName` TEXT NOT NULL, `lastName` TEXT NOT NULL, `password` TEXT NOT NULL, `phoneNumber` INTEGER NOT NULL, `role` TEXT NOT NULL, `enabled` INTEGER NOT NULL, `department` TEXT NOT NULL, PRIMARY KEY(`userId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`taskId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, `solved` INTEGER NOT NULL, PRIMARY KEY(`taskId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `machines` (`machineId` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `serviceInstruction` TEXT NOT NULL, PRIMARY KEY(`machineId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `issues` (`issueId` INTEGER, `keywords` TEXT NOT NULL, `description` TEXT NOT NULL, `solution` TEXT, `workerSignature` TEXT, `machineId` INTEGER NOT NULL, PRIMARY KEY(`issueId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `services` (`serviceId` INTEGER, `date` INTEGER NOT NULL, `componentName` TEXT NOT NULL, `description` TEXT NOT NULL, `result` INTEGER NOT NULL, `machineId` INTEGER NOT NULL, PRIMARY KEY(`serviceId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `users_machines` (`userId` INTEGER NOT NULL, `machineId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `machineId`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `users_tasks` (`userId` INTEGER NOT NULL, `taskId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `taskId`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"bbad01b8b3f78811d4d4beafb087075c\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"84423d31763ad4454e9695897e07ad05\")");
       }
 
       @Override
@@ -54,6 +56,8 @@ public final class AppDatabase_Impl extends AppDatabase {
         _db.execSQL("DROP TABLE IF EXISTS `machines`");
         _db.execSQL("DROP TABLE IF EXISTS `issues`");
         _db.execSQL("DROP TABLE IF EXISTS `services`");
+        _db.execSQL("DROP TABLE IF EXISTS `users_machines`");
+        _db.execSQL("DROP TABLE IF EXISTS `users_tasks`");
       }
 
       @Override
@@ -87,9 +91,16 @@ public final class AppDatabase_Impl extends AppDatabase {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsUsers = new HashMap<String, TableInfo.Column>(2);
-        _columnsUsers.put("user_id", new TableInfo.Column("user_id", "INTEGER", true, 1));
+        final HashMap<String, TableInfo.Column> _columnsUsers = new HashMap<String, TableInfo.Column>(9);
+        _columnsUsers.put("userId", new TableInfo.Column("userId", "INTEGER", true, 1));
         _columnsUsers.put("username", new TableInfo.Column("username", "TEXT", true, 0));
+        _columnsUsers.put("firstName", new TableInfo.Column("firstName", "TEXT", true, 0));
+        _columnsUsers.put("lastName", new TableInfo.Column("lastName", "TEXT", true, 0));
+        _columnsUsers.put("password", new TableInfo.Column("password", "TEXT", true, 0));
+        _columnsUsers.put("phoneNumber", new TableInfo.Column("phoneNumber", "INTEGER", true, 0));
+        _columnsUsers.put("role", new TableInfo.Column("role", "TEXT", true, 0));
+        _columnsUsers.put("enabled", new TableInfo.Column("enabled", "INTEGER", true, 0));
+        _columnsUsers.put("department", new TableInfo.Column("department", "TEXT", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysUsers = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesUsers = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoUsers = new TableInfo("users", _columnsUsers, _foreignKeysUsers, _indicesUsers);
@@ -162,8 +173,32 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoServices + "\n"
                   + " Found:\n" + _existingServices);
         }
+        final HashMap<String, TableInfo.Column> _columnsUsersMachines = new HashMap<String, TableInfo.Column>(2);
+        _columnsUsersMachines.put("userId", new TableInfo.Column("userId", "INTEGER", true, 1));
+        _columnsUsersMachines.put("machineId", new TableInfo.Column("machineId", "INTEGER", true, 2));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysUsersMachines = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesUsersMachines = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoUsersMachines = new TableInfo("users_machines", _columnsUsersMachines, _foreignKeysUsersMachines, _indicesUsersMachines);
+        final TableInfo _existingUsersMachines = TableInfo.read(_db, "users_machines");
+        if (! _infoUsersMachines.equals(_existingUsersMachines)) {
+          throw new IllegalStateException("Migration didn't properly handle users_machines(pl.jaworskimateusz.machineservice.data.entity.UserMachine).\n"
+                  + " Expected:\n" + _infoUsersMachines + "\n"
+                  + " Found:\n" + _existingUsersMachines);
+        }
+        final HashMap<String, TableInfo.Column> _columnsUsersTasks = new HashMap<String, TableInfo.Column>(2);
+        _columnsUsersTasks.put("userId", new TableInfo.Column("userId", "INTEGER", true, 1));
+        _columnsUsersTasks.put("taskId", new TableInfo.Column("taskId", "INTEGER", true, 2));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysUsersTasks = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesUsersTasks = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoUsersTasks = new TableInfo("users_tasks", _columnsUsersTasks, _foreignKeysUsersTasks, _indicesUsersTasks);
+        final TableInfo _existingUsersTasks = TableInfo.read(_db, "users_tasks");
+        if (! _infoUsersTasks.equals(_existingUsersTasks)) {
+          throw new IllegalStateException("Migration didn't properly handle users_tasks(pl.jaworskimateusz.machineservice.data.entity.UserTask).\n"
+                  + " Expected:\n" + _infoUsersTasks + "\n"
+                  + " Found:\n" + _existingUsersTasks);
+        }
       }
-    }, "bbad01b8b3f78811d4d4beafb087075c", "726c5b24f0f9c311906dee1534968f13");
+    }, "84423d31763ad4454e9695897e07ad05", "7c6b75f340995255648d67550b566c4c");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -176,7 +211,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks","machines","issues","services");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","tasks","machines","issues","services","users_machines","users_tasks");
   }
 
   @Override
@@ -190,6 +225,8 @@ public final class AppDatabase_Impl extends AppDatabase {
       _db.execSQL("DELETE FROM `machines`");
       _db.execSQL("DELETE FROM `issues`");
       _db.execSQL("DELETE FROM `services`");
+      _db.execSQL("DELETE FROM `users_machines`");
+      _db.execSQL("DELETE FROM `users_tasks`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();

@@ -3,6 +3,8 @@ package pl.jaworskimateusz.machineservice.data.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
@@ -11,6 +13,7 @@ import pl.jaworskimateusz.machineservice.data.dao.MachineDao
 import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.data.entity.Service
+import pl.jaworskimateusz.machineservice.data.entity.UserMachine
 import pl.jaworskimateusz.machineservice.dto.IssueDto
 import pl.jaworskimateusz.machineservice.dto.MachineDto
 import pl.jaworskimateusz.machineservice.dto.ServiceDto
@@ -30,13 +33,10 @@ class MachineRepository constructor(
         private val machineDao: MachineDao,
         private val context: Context
 ) {
-    fun getMachinesByNameLiveData(name: String): LiveData<List<Machine>> {
-        return machineDao.getMachinesByNameLiveData(name)
-    }
+    fun getMachinesByNameLiveData(name: String): LiveData<List<Machine>> =
+        machineDao.getMachinesByNameLiveData(sessionManager.userId, name)
 
-    fun getMachineById(machineId: Long): Machine {
-        return machineDao.getById(machineId)
-    }
+    fun getMachineById(machineId: Long): Machine = machineDao.getById(machineId)
 
     fun getMachineByCode(code: String): LiveData<Machine> {
         val machine = machineDao.getByCode(code)
@@ -66,9 +66,8 @@ class MachineRepository constructor(
         return machineDao.getIssuesByKeywordsLiveData(keywords, machineId)
     }
 
-    fun getIssueById(issueId: Long): Issue {
-        return machineDao.getIssueById(issueId)
-    }
+    fun getIssueById(issueId: Long): Issue = machineDao.getIssueById(issueId)
+
 
     @SuppressLint("StaticFieldLeak")
     inner class DownloadMachines() : AsyncTask<Void, Void, MachineDto>() {
@@ -77,6 +76,7 @@ class MachineRepository constructor(
             if (response.isSuccessful) {
                 val machines = MachineMapper.mapToMachineDtoList(response.body()!!)
                 machineDao.insertAll(machines)
+                machines.forEach { m -> machineDao.insertUserMachine(UserMachine(sessionManager.userId, m.machineId)) }
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
                 Log.e(TaskRepository.TAG, errorResponse?.error)
@@ -103,7 +103,9 @@ class MachineRepository constructor(
                     machineDao.insertAllIssues(issues)
                 } else {
                     val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
-                    errorResponse?.error?.let { makeToast(it) }
+                    Handler(Looper.getMainLooper()).post {
+                        if (errorResponse != null) makeToast(errorResponse.error)
+                    }
                     if (errorResponse?.status == 401) {
                         sessionManager.logout()
                     }
@@ -121,13 +123,16 @@ class MachineRepository constructor(
                     machineServiceAPI.saveOrUpdateIssue(machineId, IssueMapper.mapToIssueDto(issue)).execute()
             if (response.isSuccessful) {
                 machineDao.insertIssue(IssueMapper.mapToIssue(response.body()!!))
-//                makeToast("Issue saved") //TODO how to toast
+                Handler(Looper.getMainLooper()).post { makeToast("Issue saved") }
                 Log.d(TAG,"Issue saved")
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Handler(Looper.getMainLooper()).post {
+                    if (errorResponse != null) makeToast(errorResponse.error)
+                }
                 Log.e(TaskRepository.TAG, errorResponse?.error)
-//                errorResponse?.error?.let { makeToast(it) }
             }
+
             return null
         }
     }
@@ -139,10 +144,12 @@ class MachineRepository constructor(
                     machineServiceAPI.saveService(machineId, ServiceMapper.mapToServiceDto(service)).execute()
             if (response.isSuccessful) {
                 machineDao.insertService(ServiceMapper.mapToService(response.body()!!))
+                Handler(Looper.getMainLooper()).post { makeToast("Service saved") }
                 Log.d(TAG,"Service saved")
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
-                Log.e(TaskRepository.TAG, errorResponse?.error)
+                Handler(Looper.getMainLooper()).post { if (errorResponse != null) makeToast(errorResponse.error) }
+                Log.e(TAG, errorResponse?.error)
             }
             return null
         }

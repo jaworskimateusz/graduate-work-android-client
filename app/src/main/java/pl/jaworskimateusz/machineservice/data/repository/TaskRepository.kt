@@ -3,11 +3,15 @@ package pl.jaworskimateusz.machineservice.data.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import pl.jaworskimateusz.machineservice.data.dao.TaskDao
 import pl.jaworskimateusz.machineservice.data.entity.Task
+import pl.jaworskimateusz.machineservice.data.entity.User
+import pl.jaworskimateusz.machineservice.data.entity.UserTask
 import pl.jaworskimateusz.machineservice.dto.TaskDto
 import pl.jaworskimateusz.machineservice.mappers.TaskMapper
 import pl.jaworskimateusz.machineservice.services.UserServiceAPI
@@ -24,18 +28,15 @@ class TaskRepository constructor(
         private val taskDao: TaskDao,
         private val context: Context
 ) {
-    fun getTasksByDatesLiveData(dateFrom: Date, dateTo: Date, solved: Int): LiveData<List<Task>> {
-        return taskDao.getAllTasksByDatesLiveData(dateFrom, dateTo, solved)
-    }
+    fun getTasksByDatesLiveData(dateFrom: Date, dateTo: Date, solved: Int): LiveData<List<Task>> =
+            taskDao.getAllTasksByDatesLiveData(sessionManager.userId, dateFrom, dateTo, solved)
 
-    fun getTaskById(taskId: Long): Task {
-        return taskDao.getTaskById(taskId)
-    }
+    fun getTaskById(taskId: Long): Task = taskDao.getTaskById(taskId)
 
     @SuppressLint("StaticFieldLeak")
     inner class DownloadTasks() : AsyncTask<Void, Void, TaskDto>() {
         override fun doInBackground(vararg params: Void?): TaskDto? {
-            val maxTaskDate = taskDao.getMaxTaskDate()
+            val maxTaskDate = taskDao.getMaxTaskDate(sessionManager.userId)
             val response: Response<List<TaskDto>>
             response = if (maxTaskDate == null)
                 userServiceAPI.downloadTasks(DateUtils.dateToString(null)).execute()
@@ -44,10 +45,11 @@ class TaskRepository constructor(
             if (response.isSuccessful) {
                 val tasks = TaskMapper.mapToTaskDtoList(response.body()!!)
                 taskDao.insertAllTasks(tasks)
+                tasks.forEach { t -> taskDao.insertUserTask(UserTask(sessionManager.userId, t.taskId)) }
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Handler(Looper.getMainLooper()).post { if (errorResponse != null) makeToast(errorResponse.error) }
                 Log.e(TAG, errorResponse?.error)
-                errorResponse?.error?.let { makeToast(it) }
                 if (errorResponse?.status == 401) {
                     sessionManager.logout()
                 }
@@ -62,16 +64,18 @@ class TaskRepository constructor(
             val response = userServiceAPI.updateTask(TaskMapper.mapToTaskDto(task)).execute()
             if (response.isSuccessful) {
                 taskDao.insert(task)
+                Handler(Looper.getMainLooper()).post { makeToast("Task updated") }
                 Log.d(TAG,"Task with id ${task.taskId} updated.")
-//                makeToast("Task updated")
             } else {
                 val errorResponse = response.errorBody()?.string()?.let { ApiErrorHandler.handleError(it) }
+                Handler(Looper.getMainLooper()).post { if (errorResponse != null) makeToast(errorResponse.error) }
                 Log.e(TAG, errorResponse?.error)
-                errorResponse?.error?.let { makeToast(it) }
             }
             return null
         }
     }
+
+    fun insert(user: User) = taskDao.insert(user)
 
     private fun makeToast(text: String) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show()

@@ -1379,7 +1379,6 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
-id remember_me
 id report_problem
 id right
 id right_icon
@@ -1392,6 +1391,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scroll_view
 id scrollable
 id search_badge
 id search_bar

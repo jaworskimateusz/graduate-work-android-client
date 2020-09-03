@@ -8,6 +8,7 @@ import androidx.room.Query
 import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.data.entity.Service
+import pl.jaworskimateusz.machineservice.data.entity.UserMachine
 
 @Dao
 interface MachineDao {
@@ -15,14 +16,18 @@ interface MachineDao {
     @Query("SELECT * FROM machines ORDER BY name")
     fun getAllMachinesLiveData(): LiveData<List<Machine>>
 
-    @Query("SELECT * FROM machines WHERE name LIKE '%' || :name || '%' ORDER BY name")
-    fun getMachinesByNameLiveData(name: String): LiveData<List<Machine>> //TODO consider many to many relation
-
-    @Query("SELECT * FROM machines ORDER BY name")
-    fun getAllMachines(): List<Machine>
+    @Query("""SELECT m.machineId, m.name, m.code, m.description, m.image, m.serviceInstruction 
+            FROM machines AS m 
+            JOIN users_machines AS um USING(machineId)  
+            WHERE m.name LIKE '%' || :name || '%' AND um.userId=:userId 
+            ORDER BY m.name""")
+    fun getMachinesByNameLiveData(userId: Long, name: String): LiveData<List<Machine>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(machines: List<Machine>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUserMachine(userMachine: UserMachine)
 
     @Query("SELECT * FROM machines WHERE machineId=:machineId")
     fun getById(machineId: Long): Machine

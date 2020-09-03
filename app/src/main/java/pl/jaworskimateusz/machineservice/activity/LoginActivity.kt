@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import pl.jaworskimateusz.machineservice.dto.LoginResponse
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
+import pl.jaworskimateusz.machineservice.data.repository.TaskRepository
 import pl.jaworskimateusz.machineservice.dto.UserDto
+import pl.jaworskimateusz.machineservice.mappers.UserMapper
 import pl.jaworskimateusz.machineservice.services.AuthenticationServiceAPI
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.NetworkManager
@@ -23,13 +25,15 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etUsername: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
-    private lateinit var cbRememberMe: CheckBox
     private lateinit var loadingDialog: ProgressDialog
 
     private lateinit var sessionManager: SessionManager
 
     @Inject
     lateinit var authenticationServiceApi: AuthenticationServiceAPI
+
+    @Inject
+    lateinit var taskRepository: TaskRepository
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +44,7 @@ class LoginActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.login)
         etPassword = findViewById(R.id.et_password)
         btnLogin = findViewById(R.id.btn_login)
-        cbRememberMe = findViewById(R.id.remember_me)
-
         btnLogin.setOnClickListener { login() }
-        if (sessionManager.rememberMe) {
-            etUsername.setText(sessionManager.login)
-            etPassword.setText(sessionManager.password)
-            cbRememberMe.isChecked = sessionManager.rememberMe
-        }
-
     }
 
     fun login() {
@@ -105,8 +101,8 @@ class LoginActivity : AppCompatActivity() {
             user.password,
             token
         )
+        taskRepository.insert(UserMapper.mapToUser(user))
         sessionManager.department = user.department
-        sessionManager.rememberMe = cbRememberMe.isChecked
     }
 
     override fun onBackPressed() {
