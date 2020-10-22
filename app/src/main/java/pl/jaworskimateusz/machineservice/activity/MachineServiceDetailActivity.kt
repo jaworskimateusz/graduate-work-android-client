@@ -11,6 +11,7 @@ import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.data.entity.Service
 import pl.jaworskimateusz.machineservice.session.SessionManager
+import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModelFactory
 import java.util.*
@@ -52,16 +53,21 @@ class MachineServiceDetailActivity : BaseActivity() {
     }
 
     fun saveService(view: View) {
-        val service = Service(
-                null,
-                Date(),
-                etComponentName.text.toString(),
-                etDescription.text.toString(),
-                if (cbResult.isChecked) 1 else 0,
-                machineId
-        )
-        machineViewModel.machineRepository.SaveService(machineId, service).execute()
-        finish()
+        if (NetworkManager.isNetworkAvailable(this)) {
+            val service = Service(
+                    null,
+                    Date(),
+                    etComponentName.text.toString(),
+                    etDescription.text.toString(),
+                    if (cbResult.isChecked) 1 else 0,
+                    machineId
+            )
+            machineViewModel.machineRepository.SaveService(machineId, service).execute()
+            finish()
+        } else {
+            noInternetConnection()
+        }
+
     }
 
     companion object {

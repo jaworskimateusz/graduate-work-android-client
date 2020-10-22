@@ -1,25 +1,19 @@
 package pl.jaworskimateusz.machineservice.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import androidx.transition.Visibility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.item_task.view.*
 import pl.jaworskimateusz.machineservice.MachineServiceApplication
 import pl.jaworskimateusz.machineservice.R
 import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.data.entity.Task
 import pl.jaworskimateusz.machineservice.session.SessionManager
+import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.TaskViewModelFactory
 import javax.inject.Inject
-
 
 class TaskDetailActivity : BaseActivity() {
 
@@ -64,12 +58,16 @@ class TaskDetailActivity : BaseActivity() {
     }
 
     fun markAsSolved(view: View) {
-        if (task.solved == 1)
-            makeToast(getString(R.string.task_solved))
-        else {
-            task.solved = 1
-            taskViewModel.taskRepository.UpdateTask(task).execute()
-            finish()
+        if (NetworkManager.isNetworkAvailable(this)) {
+            if (task.solved == 1)
+                makeToast(getString(R.string.task_solved))
+            else {
+                task.solved = 1
+                taskViewModel.taskRepository.UpdateTask(task).execute()
+                finish()
+            }
+        } else {
+            noInternetConnection()
         }
     }
 

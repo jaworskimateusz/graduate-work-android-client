@@ -12,6 +12,7 @@ import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.data.entity.Issue
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.FileUtils
+import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModelFactory
 import javax.inject.Inject
@@ -85,18 +86,22 @@ class IssueDetailActivity : BaseActivity() {
     }
 
     fun saveIssue(view: View) {
-        issue = Issue(
-                null,
-                etKeywords.text.toString(),
-                etDescription.text.toString(),
-                etSolution.text.toString(),
-                FileUtils.bitmapToString(signaturePad.signatureBitmap),
-                machineId
-        )
-        if (issueId != 0L)
-            issue!!.issueId = issueId
-        machineViewModel.machineRepository.SaveOrUpdateIssue(machineId, issue!!).execute()
-        finish()
+        if (NetworkManager.isNetworkAvailable(this)) {
+            issue = Issue(
+                    null,
+                    etKeywords.text.toString(),
+                    etDescription.text.toString(),
+                    etSolution.text.toString(),
+                    FileUtils.bitmapToString(signaturePad.signatureBitmap),
+                    machineId
+            )
+            if (issueId != 0L)
+                issue!!.issueId = issueId
+            machineViewModel.machineRepository.SaveOrUpdateIssue(machineId, issue!!).execute()
+            finish()
+        } else {
+            noInternetConnection()
+        }
     }
 
     fun clearSignaturePad(view: View) {

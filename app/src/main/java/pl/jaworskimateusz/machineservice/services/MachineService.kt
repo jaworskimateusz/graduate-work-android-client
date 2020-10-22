@@ -22,7 +22,7 @@ interface MachineService {
     @Headers("Content-Type: application/vnd.api+json")
     @GET("/machines")
     fun getMachineByCode(@Header("Authorization") auth: String,
-                         @Path("code") code: String
+                         @Query("code") code: String
     ): Call<MachineDto>
 
     @Streaming

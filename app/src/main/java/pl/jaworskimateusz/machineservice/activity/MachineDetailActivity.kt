@@ -30,6 +30,7 @@ import pl.jaworskimateusz.machineservice.activity.base.BaseActivity
 import pl.jaworskimateusz.machineservice.data.entity.Machine
 import pl.jaworskimateusz.machineservice.session.SessionManager
 import pl.jaworskimateusz.machineservice.utilities.FileUtils
+import pl.jaworskimateusz.machineservice.utilities.NetworkManager
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModel
 import pl.jaworskimateusz.machineservice.viewmodel.MachineViewModelFactory
 import java.io.File
@@ -69,11 +70,16 @@ class MachineDetailActivity : BaseActivity() {
             machine = machineViewModel.machineRepository.getMachineById(machineId)
             setContent()
         } else {
-            code = intent?.extras?.get("code") as String
-            machineViewModel.machineRepository.getMachineByCode(code).observe(this, Observer {
-                        m -> this.machine = m
-                        setContent()
-            })
+            if (NetworkManager.isNetworkAvailable(this)) {
+                code = intent?.extras?.get("code") as String
+                machineViewModel.machineRepository.getMachineByCode(code).observe(this, Observer {
+                    m -> this.machine = m
+                    setContent()
+                })
+            } else {
+                noInternetConnection()
+                finish()
+            }
         }
         super.onCreate(savedInstanceState)
     }
